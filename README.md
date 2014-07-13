@@ -1,4 +1,6 @@
 computer-science-in-swift
 =========================
 
-Nothing to see here. Move along.
+See https://github.com/nzakas/computer-science-in-javascript.
+
+Using this repo as a playground for learning Swift.
