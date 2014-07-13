@@ -1,11 +1,3 @@
-//
-//  MasterViewController.swift
-//  computer-science-in-swift
-//
-//  Created by Sean O' Shea on 7/13/14.
-//  Copyright (c) 2014 UpwardsNorthwards. All rights reserved.
-//
-
 import UIKit
 
 class MasterViewController: UITableViewController {

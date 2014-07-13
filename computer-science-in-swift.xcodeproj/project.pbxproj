@@ -12,7 +12,9 @@
 		712287E51972CF60004ECA0E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712287E41972CF60004ECA0E /* DetailViewController.swift */; };
 		712287E81972CF60004ECA0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 712287E61972CF60004ECA0E /* Main.storyboard */; };
 		712287EA1972CF60004ECA0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 712287E91972CF60004ECA0E /* Images.xcassets */; };
-		712287F61972CF60004ECA0E /* computer_science_in_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712287F51972CF60004ECA0E /* computer_science_in_swiftTests.swift */; };
+		71E0719A1972D0C700475940 /* NextPrimeFibonacci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E071991972D0C700475940 /* NextPrimeFibonacci.swift */; };
+		71E0719B1972D0C700475940 /* NextPrimeFibonacci.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E071991972D0C700475940 /* NextPrimeFibonacci.swift */; };
+		71E0719D1972D0FA00475940 /* NextPrimeFibonacciTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E0719C1972D0FA00475940 /* NextPrimeFibonacciTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,8 @@
 		712287E91972CF60004ECA0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		712287EF1972CF60004ECA0E /* computer-science-in-swiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "computer-science-in-swiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		712287F41972CF60004ECA0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		712287F51972CF60004ECA0E /* computer_science_in_swiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = computer_science_in_swiftTests.swift; sourceTree = "<group>"; };
+		71E071991972D0C700475940 /* NextPrimeFibonacci.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextPrimeFibonacci.swift; sourceTree = "<group>"; };
+		71E0719C1972D0FA00475940 /* NextPrimeFibonacciTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextPrimeFibonacciTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +81,11 @@
 			isa = PBXGroup;
 			children = (
 				712287E01972CF60004ECA0E /* AppDelegate.swift */,
-				712287E21972CF60004ECA0E /* MasterViewController.swift */,
 				712287E41972CF60004ECA0E /* DetailViewController.swift */,
-				712287E61972CF60004ECA0E /* Main.storyboard */,
 				712287E91972CF60004ECA0E /* Images.xcassets */,
+				712287E61972CF60004ECA0E /* Main.storyboard */,
+				712287E21972CF60004ECA0E /* MasterViewController.swift */,
+				71E071991972D0C700475940 /* NextPrimeFibonacci.swift */,
 				712287DE1972CF60004ECA0E /* Supporting Files */,
 			);
 			path = "computer-science-in-swift";
@@ -98,7 +102,7 @@
 		712287F21972CF60004ECA0E /* computer-science-in-swiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				712287F51972CF60004ECA0E /* computer_science_in_swiftTests.swift */,
+				71E0719C1972D0FA00475940 /* NextPrimeFibonacciTest.swift */,
 				712287F31972CF60004ECA0E /* Supporting Files */,
 			);
 			path = "computer-science-in-swiftTests";
@@ -212,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				712287E51972CF60004ECA0E /* DetailViewController.swift in Sources */,
+				71E0719A1972D0C700475940 /* NextPrimeFibonacci.swift in Sources */,
 				712287E31972CF60004ECA0E /* MasterViewController.swift in Sources */,
 				712287E11972CF60004ECA0E /* AppDelegate.swift in Sources */,
 			);
@@ -221,7 +226,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				712287F61972CF60004ECA0E /* computer_science_in_swiftTests.swift in Sources */,
+				71E0719D1972D0FA00475940 /* NextPrimeFibonacciTest.swift in Sources */,
+				71E0719B1972D0C700475940 /* NextPrimeFibonacci.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +407,7 @@
 				712287FB1972CF60004ECA0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		712287FC1972CF60004ECA0E /* Build configuration list for PBXNativeTarget "computer-science-in-swiftTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +416,7 @@
 				712287FE1972CF60004ECA0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
