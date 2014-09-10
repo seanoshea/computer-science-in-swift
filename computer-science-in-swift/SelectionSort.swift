@@ -2,7 +2,7 @@ import Foundation
 
 class SelectionSort {
     
-    func selectionSort(items:Array<Int>) -> Array<Int> {
+    func selectionSort(inout items:Array<Int>) -> Array<Int> {
         
         for (var i = 0; i < items.count; i++) {
             var min = i;
@@ -12,13 +12,17 @@ class SelectionSort {
                 }
             }
             if (i != min) {
-                var temp = items[i]
-                items[i] = items[min]
-                items[min] = temp
+                exchange(&items, i:i, min:min)
             }
         }
         
         return items;
+    }
+    
+    func exchange<T>(inout items:[T], i:Int, min:Int) {
+        var temp = items[i]
+        items[i] = items[min]
+        items[min] = temp
     }
 }
 

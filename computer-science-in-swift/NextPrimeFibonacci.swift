@@ -36,7 +36,7 @@ class NextPrimeFibonacci {
             return 1
         } else {
             let memoized = map[input]
-            if (memoized) {
+            if ((memoized) != nil) {
                 return memoized!
             } else {
                 map[input] = fibonacci(input - 1) + fibonacci(input - 2)
