@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141D50DA1AC1465500DAAA4F /* InsertionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141D50D91AC1465500DAAA4F /* InsertionSort.swift */; };
+		141D50DC1AC146EC00DAAA4F /* InsertionSortTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141D50DB1AC146EC00DAAA4F /* InsertionSortTest.swift */; };
+		141D50DD1AC1471F00DAAA4F /* InsertionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141D50D91AC1465500DAAA4F /* InsertionSort.swift */; };
 		14E15FF71ABFFB2100F0A7E5 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E15FF61ABFFB2100F0A7E5 /* QuickSort.swift */; };
 		14E15FF91ABFFB4D00F0A7E5 /* QuickSortTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E15FF81ABFFB4D00F0A7E5 /* QuickSortTest.swift */; };
 		14E15FFA1ABFFCDC00F0A7E5 /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E15FF61ABFFB2100F0A7E5 /* QuickSort.swift */; };
@@ -40,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		141D50D91AC1465500DAAA4F /* InsertionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionSort.swift; sourceTree = "<group>"; };
+		141D50DB1AC146EC00DAAA4F /* InsertionSortTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertionSortTest.swift; sourceTree = "<group>"; };
 		14E15FF61ABFFB2100F0A7E5 /* QuickSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSort.swift; sourceTree = "<group>"; };
 		14E15FF81ABFFB4D00F0A7E5 /* QuickSortTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSortTest.swift; sourceTree = "<group>"; };
 		712287DB1972CF60004ECA0E /* computer-science-in-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "computer-science-in-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +110,7 @@
 				7165F131197309D400DC38D9 /* BubbleSort.swift */,
 				712287E41972CF60004ECA0E /* DetailViewController.swift */,
 				712287E91972CF60004ECA0E /* Images.xcassets */,
+				141D50D91AC1465500DAAA4F /* InsertionSort.swift */,
 				712287E61972CF60004ECA0E /* Main.storyboard */,
 				712287E21972CF60004ECA0E /* MasterViewController.swift */,
 				71E071991972D0C700475940 /* NextPrimeFibonacci.swift */,
@@ -128,6 +134,7 @@
 			children = (
 				7165F12F197304EE00DC38D9 /* BinarySearchTest.swift */,
 				7165F13419730A4800DC38D9 /* BubbleSortTest.swift */,
+				141D50DB1AC146EC00DAAA4F /* InsertionSortTest.swift */,
 				71E0719C1972D0FA00475940 /* NextPrimeFibonacciTest.swift */,
 				14E15FF81ABFFB4D00F0A7E5 /* QuickSortTest.swift */,
 				7165F13919732B3600DC38D9 /* SelectionSortTest.swift */,
@@ -243,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141D50DA1AC1465500DAAA4F /* InsertionSort.swift in Sources */,
 				712287E51972CF60004ECA0E /* DetailViewController.swift in Sources */,
 				71E0719A1972D0C700475940 /* NextPrimeFibonacci.swift in Sources */,
 				7165F13719732AAF00DC38D9 /* SelectionSort.swift in Sources */,
@@ -260,12 +268,14 @@
 			files = (
 				7165F13A19732B3600DC38D9 /* SelectionSortTest.swift in Sources */,
 				14E15FFA1ABFFCDC00F0A7E5 /* QuickSort.swift in Sources */,
+				141D50DC1AC146EC00DAAA4F /* InsertionSortTest.swift in Sources */,
 				14E15FF91ABFFB4D00F0A7E5 /* QuickSortTest.swift in Sources */,
 				7165F130197304EE00DC38D9 /* BinarySearchTest.swift in Sources */,
 				71E0719D1972D0FA00475940 /* NextPrimeFibonacciTest.swift in Sources */,
 				7165F13819732AAF00DC38D9 /* SelectionSort.swift in Sources */,
 				7165F133197309D400DC38D9 /* BubbleSort.swift in Sources */,
 				71E0719B1972D0C700475940 /* NextPrimeFibonacci.swift in Sources */,
+				141D50DD1AC1471F00DAAA4F /* InsertionSort.swift in Sources */,
 				7165F12E1973049700DC38D9 /* BinarySearch.swift in Sources */,
 				7165F13519730A4800DC38D9 /* BubbleSortTest.swift in Sources */,
 			);
