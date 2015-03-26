@@ -22,7 +22,7 @@ class NextPrimeFibonacci {
         var isPrime = input >= 2
         if (isPrime) {
             for (var i = 2; i < input - 1; i++) {
-                if (input % i == 0) {
+                if input % i == 0 {
                     isPrime = false
                     break;
                 }
@@ -36,7 +36,7 @@ class NextPrimeFibonacci {
             return 1
         } else {
             let memoized = map[input]
-            if ((memoized) != nil) {
+            if memoized != nil {
                 return memoized!
             } else {
                 map[input] = fibonacci(input - 1) + fibonacci(input - 2)

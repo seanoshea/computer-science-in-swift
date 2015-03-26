@@ -12,9 +12,9 @@ class QuickSort {
     
     func qs(inout items:Array<Int>, left:Int = 0, right:Int) -> Array<Int> {
         var index:Int
-        if (items.count > 1) {
+        if items.count > 1 {
             index = partition(&items, left:left, right:right)
-            if (left < index - 1) {
+            if left < index - 1 {
                 qs(&items, left:left, right:index - 1)
             }
             if (index < right) {
@@ -36,7 +36,7 @@ class QuickSort {
             while (items[j] > pivot) {
                 j--
             }
-            if (i <= j) {
+            if i <= j {
                 exchange(&items, i:i, j:j)
                 i++
                 j--
