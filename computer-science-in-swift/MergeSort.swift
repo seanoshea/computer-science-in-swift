@@ -5,7 +5,7 @@ import Darwin
 class MergeSort {
     
     func mergeSort(inout items:Array<Int>) -> Array<Int> {
-        if (items.count < 2) {
+        if items.count < 2 {
             return items;
         }
         var middle = items.count
@@ -22,7 +22,7 @@ class MergeSort {
         var il = 0
         var ir = 0
         while (il < left.count && ir < right.count) {
-            if (left[il] < right[ir]) {
+            if left[il] < right[ir] {
                 var element = left[il++]
                 result.append(element)
             } else {
