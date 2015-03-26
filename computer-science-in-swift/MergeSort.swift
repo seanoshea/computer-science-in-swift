@@ -8,24 +8,30 @@ class MergeSort {
         if (items.count < 2) {
             return items;
         }
-        
-        var middle:Int = Int(floor(CDouble(items.count / 2)))
-        var left = items[0 ..< middle]
-        var right = items[middle ..< items.count]
-        return merge(&mergeSort(&left), right:&mergeSort(&right))
+        var middle = items.count
+        middle /= 2
+        var left:Array<Int> = Array(items[0 ..< middle])
+        var right:Array<Int> = Array(items[middle ..< items.count])
+        var mergedLeft = mergeSort(&left);
+        var mergedRight = mergeSort(&right);
+        return merge(&mergedLeft, right:&mergedRight);
     }
     
-    func merge(inout left:Array<Int>, inout right:Array<Int>) {
-        var result = []
+    func merge(inout left:Array<Int>, inout right:Array<Int>) -> Array<Int> {
+        var result:Array<Int> = [Int]()
         var il = 0
         var ir = 0
         while (il < left.count && ir < right.count) {
             if (left[il] < right[ir]) {
-                result.push(left[il++]);
+                var element = left[il++]
+                result.append(element)
             } else {
-                result.push(right[ir++]);
+                var element = right[ir++]
+                result.append(element)
             }
         }
-        return result.concat(left.slice(il)).concat(right.slice(ir));
+        result += Array<Int>(Array<Int>(left[il ..< left.count]));
+        result += Array(Array(right[ir ..< right.count]));
+        return result;
     }
 }
