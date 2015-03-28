@@ -1,5 +1,5 @@
 computer-science-in-swift
-==================================================
+=========================
 
 See https://github.com/nzakas/computer-science-in-javascript.
 
