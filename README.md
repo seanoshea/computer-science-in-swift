@@ -1,6 +1,7 @@
-computer-science-in-swift
-=========================
+### computer-science-in-swift
 
-See https://github.com/nzakas/computer-science-in-javascript.
+The overwhelming majority of the actual code and logic for this repo is taken directly from https://github.com/nzakas/computer-science-in-javascript. The intent behind this repository of code is an attempt to try and translate logic from JavaScript into Swift.
 
-Using this repo as a playground for learning Swift.
+### Other repos
+
+https://github.com/jessesquires/swift-sorts and http://www.jessesquires.com/apples-to-apples/
