@@ -47,4 +47,15 @@ class QuickSortTest: XCTestCase {
         var sorted = quickSort.quickSort(&original)
         XCTAssert(sorted == [-1, 0, 1, 100])
     }
+    
+    func testRandomArray() {
+        var original = [] as Array<Int>
+        for (var i = 1; i <= 100; i++) {
+            original.append(Int(rand() % 100 + 1));
+        }
+        var copied = original;
+        original.sort({ $1 > $0 })
+        var sorted = quickSort.quickSort(&copied)
+        XCTAssert(sorted == original)
+    }
 }

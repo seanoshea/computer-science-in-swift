@@ -53,4 +53,15 @@ class InsertionSortTest: XCTestCase {
         var sorted = insertionSort.insertionSort(&original)
         XCTAssert(sorted == [3, 6, 9])
     }
+
+    func testRandomArray() {
+        var original = [] as Array<Int>
+        for (var i = 1; i <= 100; i++) {
+            original.append(Int(rand() % 100 + 1));
+        }
+        var copied = original;
+        original.sort({ $1 > $0 })
+        var sorted = insertionSort.insertionSort(&copied)
+        XCTAssert(sorted == original)
+    }
 }
