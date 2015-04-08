@@ -38,27 +38,33 @@ class LinkedListTest: XCTestCase {
     }
 
     func testAdd() {
-        
         XCTAssert(linkedList.size() == 3, "The size of the linked list should be 3 after adding three elements")
     }
     
     func testRetrieveItem() {
-        
         XCTAssert(linkedList.item(3) == 4, "The third element in the list should equal 4")
     }
     
     func testRemoveItem() {
-        
         let removedItem = linkedList.remove(1)
-        
         XCTAssert(removedItem == 2, "The removed item should be returned from remove")
         XCTAssert(linkedList.size() == 2, "The size of the linked list should be 2 after removing one element")
     }
     
+    func testRemoveItemThatIsntPresent() {
+        let removedItem = linkedList.remove(14)
+        XCTAssert(removedItem == nil, "The returned item should be nil")
+        XCTAssert(linkedList.size() == 3, "The size of the linked list should be 3 after trying to remove an element that isnt there")
+    }
+    
     func testToArray() {
-        
         let returnedArray = linkedList.toArray()
-        
         XCTAssert(returnedArray == [1, 2, 4])
+    }
+    
+    func testClear() {
+        XCTAssert(linkedList.size() == 3, "The size of the linked list at the start should be 3")
+        linkedList.clear()
+        XCTAssert(linkedList.size() == 0, "The size of the linked list after clearning should be 0")
     }
 }

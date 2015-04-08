@@ -20,7 +20,15 @@
 
 import UIKit
 
+class LinkedListNode {
+    var data:Int = 0
+    var next:LinkedListNode?
+}
+
 class LinkedList: NSObject {
+    
+    var head:LinkedListNode?
+    var length:Int = 0
     
     func add(data:Int) {
         
