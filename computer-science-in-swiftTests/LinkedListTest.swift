@@ -32,17 +32,13 @@ class LinkedListTest: XCTestCase {
         linkedList.add(2)
         linkedList.add(4)
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     func testAdd() {
         XCTAssert(linkedList.size() == 3, "The size of the linked list should be 3 after adding three elements")
     }
     
     func testRetrieveItem() {
-        XCTAssert(linkedList.item(3) == 4, "The third element in the list should equal 4")
+        XCTAssert(linkedList.item(2) == 4, "The third element in the list should equal 4")
     }
     
     func testRemoveItem() {

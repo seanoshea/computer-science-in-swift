@@ -47,12 +47,37 @@ class LinkedList: NSObject {
         self.length++
     }
     
-    func item(index:Int) -> Int {
-        return 0
+    func item(index:Int) -> Int? {
+        if index > -1 && index < self.length {
+            var current:LinkedListNode = self.head!
+            var i = 0
+            while i++ < index {
+                current = current.next!
+            }
+            return current.data
+        }
+        return nil
     }
     
     func remove(index:Int) -> Int? {
-        return 0
+        if index > -1 && index < self.length {
+            var current:LinkedListNode = self.head!
+            var previous:LinkedListNode = LinkedListNode()
+            var i = 0
+            if index == 0 {
+                self.head = current.next
+            } else {
+                while i++ < index {
+                    previous = current
+                    current = current.next!
+                }
+                previous.next = current.next
+            }
+            self.length--
+            return current.data
+        } else {
+            return nil
+        }
     }
     
     func size() -> Int {
@@ -60,10 +85,16 @@ class LinkedList: NSObject {
     }
     
     func toArray() -> Array<Int> {
-        return []
+        var result:Array<Int> = []
+        var current:LinkedListNode = self.head!
+        for var i = 0; i < self.length; i++ {
+            result.append(self.item(i)!)
+        }
+        return result
     }
     
     func clear() {
-        
+        self.head = nil
+        self.length = 0
     }
 }
