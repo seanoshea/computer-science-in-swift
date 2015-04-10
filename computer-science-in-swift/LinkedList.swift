@@ -94,6 +94,10 @@ class LinkedList: NSObject {
     }
     
     func clear() {
+        var size = self.size();
+        for var i = 0; i < size; i++ {
+            self.remove(i);
+        }
         self.head = nil
         self.length = 0
     }
