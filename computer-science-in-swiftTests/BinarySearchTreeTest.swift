@@ -27,6 +27,7 @@ class BinarySearchTreeTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        binarySearchTree = BinarySearchTree()
         binarySearchTree.add(1)
         binarySearchTree.add(2)
         binarySearchTree.add(3)
@@ -35,14 +36,22 @@ class BinarySearchTreeTest: XCTestCase {
         binarySearchTree.add(13)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testSize() {
         XCTAssert(binarySearchTree.size() == 6, "there should be 6 elements in the tree at the start")
         binarySearchTree.add(21)
         XCTAssert(binarySearchTree.size() == 7, "there should be 7 elements in the tree after adding one")
+    }
+    
+    func testContains() {
+        XCTAssert(binarySearchTree.contains(1), "1 should be in the bst")
+        XCTAssertFalse(binarySearchTree.contains(44), "44 should not be in the bst")
+    }
+    
+    func testToArray() {
+        XCTAssert(binarySearchTree.toArray() == [1, 2, 3, 5, 8, 13], "BST tree should return the correct array")
+    }
+    
+    func testToString() {
+        XCTAssert(binarySearchTree.toString() == "1 2 3 5 8 13", "BST tree should return the correct string representation")
     }
 }

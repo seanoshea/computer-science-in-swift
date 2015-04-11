@@ -20,25 +20,101 @@
 
 import Foundation
 
+class BinarySearchTreeNode {
+    var value:Int = 0
+    var left:BinarySearchTreeNode?
+    var right:BinarySearchTreeNode?
+}
+
 class BinarySearchTree {
     
+    init() { }
+    
+    var root:BinarySearchTreeNode?
+    
     func add(value:Int) {
-        
+        var node = BinarySearchTreeNode()
+        node.value = value
+        if self.root == nil {
+            self.root = node
+        } else {
+            var current:BinarySearchTreeNode = self.root!
+            while true {
+                if value < current.value {
+                    if current.left == nil {
+                        current.left = node
+                        break
+                    } else {
+                        current = current.left!
+                    }
+                } else if value > current.value {
+                    if current.right == nil {
+                        current.right = node
+                        break
+                    } else {
+                        current = current.right!
+                    }
+                } else {
+                    break
+                }
+            }        
+        }
     }
     
     func contains(value:Int) -> Bool {
-        return false
+        var found = false
+        var current = self.root
+        while (!found && current != nil) {
+            var unwrappedCurrent = current!
+            if value < unwrappedCurrent.value {
+                current = unwrappedCurrent.left
+            } else if value > unwrappedCurrent.value {
+                current = unwrappedCurrent.right
+            } else {
+                found = true;
+            }
+        }
+        return found;
     }
     
     func size() -> Int {
-        return 0
+        var length:Int = 0
+        self.traverse { (BinarySearchTreeNode node) -> () in
+            length = length + 1
+        }
+        return length
     }
     
     func toArray() -> Array<Int> {
-        return []
+        var result:Array<Int> = [];
+        self.traverse { (node:BinarySearchTreeNode) -> () in
+            result.append(node.value);
+        }
+        return result;
     }
     
-    func traverse() {
-        
+    func toString() -> String {
+        var result = ""
+        self.traverse { (node:BinarySearchTreeNode) -> () in
+            result += "\(node.value) "
+        }
+        result = result.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        return result
+    }
+    
+    func traverse(fn:(BinarySearchTreeNode) -> ()) {
+        self.inOrderTraversal(self.root, fn);
+    }
+    
+    func inOrderTraversal(node:BinarySearchTreeNode?, fn:(BinarySearchTreeNode) -> ()) {
+        if let nonNilNode = node {
+            if (nonNilNode.left != nil) {
+                self.inOrderTraversal(nonNilNode.left, fn);
+            }
+            fn(nonNilNode)
+            if (nonNilNode.right != nil) {
+                self.inOrderTraversal(nonNilNode.right, fn);
+            }
+        }
     }
 }
