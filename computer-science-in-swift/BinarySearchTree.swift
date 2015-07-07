@@ -103,17 +103,17 @@ class BinarySearchTree {
     }
     
     func traverse(fn:(BinarySearchTreeNode) -> ()) {
-        self.inOrderTraversal(self.root, fn);
+        self.inOrderTraversal(self.root, fn: fn);
     }
     
     func inOrderTraversal(node:BinarySearchTreeNode?, fn:(BinarySearchTreeNode) -> ()) {
         if let nonNilNode = node {
             if (nonNilNode.left != nil) {
-                self.inOrderTraversal(nonNilNode.left, fn);
+                self.inOrderTraversal(nonNilNode.left, fn: fn);
             }
             fn(nonNilNode)
             if (nonNilNode.right != nil) {
-                self.inOrderTraversal(nonNilNode.right, fn);
+                self.inOrderTraversal(nonNilNode.right, fn: fn);
             }
         }
     }
