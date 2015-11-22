@@ -25,8 +25,8 @@ import Darwin
 class QuickSort {
     
     func quickSort(inout items:Array<Int>) -> Array<Int> {
-        var left:Int = 0
-        var right:Int = items.count - 1
+        let left:Int = 0
+        let right:Int = items.count - 1
         return qs(&items, left:left, right:right)
     }
     
@@ -45,8 +45,8 @@ class QuickSort {
     }
     
     func partition(inout items:Array<Int>, left:Int = 0, right:Int) -> Int {
-        var index:Int = Int(Double((right + left) / 2))
-        var pivot = items[index]
+        let index:Int = Int(Double((right + left) / 2))
+        let pivot = items[index]
         var i = left
         var j = right
         while (i <= j) {
@@ -66,7 +66,7 @@ class QuickSort {
     }
     
     func exchange<T>(inout items:[T], i:Int, j:Int) {
-        var temp = items[i]
+        let temp = items[i]
         items[i] = items[j]
         items[j] = temp
     }

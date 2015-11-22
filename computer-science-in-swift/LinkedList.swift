@@ -31,7 +31,7 @@ class LinkedList: NSObject {
     var length:Int = 0
     
     func add(data:Int) {
-        var node = LinkedListNode()
+        let node = LinkedListNode()
         node.data = data
         var current:LinkedListNode
         
@@ -86,7 +86,6 @@ class LinkedList: NSObject {
     
     func toArray() -> Array<Int> {
         var result:Array<Int> = []
-        var current:LinkedListNode = self.head!
         for var i = 0; i < self.length; i++ {
             result.append(self.item(i)!)
         }
@@ -94,7 +93,7 @@ class LinkedList: NSObject {
     }
     
     func clear() {
-        var size = self.size();
+        let size = self.size();
         for var i = 0; i < size; i++ {
             self.remove(i);
         }

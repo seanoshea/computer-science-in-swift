@@ -32,7 +32,7 @@ class BinarySearchTest: XCTestCase {
     }
     
     func testEnsureItemsAreNotFound() {
-        var arrayOfItems = [0]
+        let arrayOfItems = [0]
         XCTAssertTrue(binarySearch.binarySearch(arrayOfItems, value: 2) == nil)
         XCTAssertTrue(binarySearch.binarySearch(arrayOfItems, value: 2) == nil)
         XCTAssertTrue(binarySearch.binarySearch(arrayOfItems, value: -1) == nil)

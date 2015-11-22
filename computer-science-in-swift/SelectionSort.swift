@@ -38,7 +38,7 @@ class SelectionSort {
     }
     
     func exchange<T>(inout items:[T], i:Int, min:Int) {
-        var temp = items[i]
+        let temp = items[i]
         items[i] = items[min]
         items[min] = temp
     }

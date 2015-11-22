@@ -28,7 +28,7 @@ class NextPrimeFibonacci {
     func nextPrimeFibonacci(input: Int) -> Int {
         var nextPrimeFibonacci = 0
         while (true) {
-            var num = fibonacci(nextPrimeFibonacci)
+            let num = fibonacci(nextPrimeFibonacci)
             if (num > input && isPrime(num)) {
                 nextPrimeFibonacci = num
                 break;

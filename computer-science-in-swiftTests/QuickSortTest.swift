@@ -26,25 +26,25 @@ class QuickSortTest: XCTestCase {
 
     func testQuickSort() {
         var original = [1]
-        var sorted = quickSort.quickSort(&original)
+        let sorted = quickSort.quickSort(&original)
         XCTAssert(sorted == original)
     }
     
     func testQuickSortTwo() {
         var original = [2, 1]
-        var sorted = quickSort.quickSort(&original)
+        let sorted = quickSort.quickSort(&original)
         XCTAssert(sorted == [1, 2])
     }
     
     func testQuickSortThree() {
         var original = [2, 1, 2, 2, 2, 0, 9]
-        var sorted = quickSort.quickSort(&original)
+        let sorted = quickSort.quickSort(&original)
         XCTAssert(sorted == [0, 1, 2, 2, 2, 2, 9])
     }
     
     func testQuickSortFour() {
         var original = [1, 0, -1, 100]
-        var sorted = quickSort.quickSort(&original)
+        let sorted = quickSort.quickSort(&original)
         XCTAssert(sorted == [-1, 0, 1, 100])
     }
     
@@ -54,8 +54,8 @@ class QuickSortTest: XCTestCase {
             original.append(Int(rand() % 100 + 1));
         }
         var copied = original;
-        original.sort({ $1 > $0 })
-        var sorted = quickSort.quickSort(&copied)
+        original.sortInPlace({ $1 > $0 })
+        let sorted = quickSort.quickSort(&copied)
         XCTAssert(sorted == original)
     }
 }

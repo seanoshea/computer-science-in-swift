@@ -33,7 +33,7 @@ class BinarySearchTree {
     var root:BinarySearchTreeNode?
     
     func add(value:Int) {
-        var node = BinarySearchTreeNode()
+        let node = BinarySearchTreeNode()
         node.value = value
         if self.root == nil {
             self.root = node
@@ -65,7 +65,7 @@ class BinarySearchTree {
         var found = false
         var current = self.root
         while (!found && current != nil) {
-            var unwrappedCurrent = current!
+            let unwrappedCurrent = current!
             if value < unwrappedCurrent.value {
                 current = unwrappedCurrent.left
             } else if value > unwrappedCurrent.value {
