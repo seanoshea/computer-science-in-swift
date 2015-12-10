@@ -25,7 +25,7 @@ class BubbleSort {
     func bubbleSort(inout items:Array<Int>) -> Array<Int> {
         for (i, _) in items.enumerate() {
             let stop = (items.count - 1) - i
-            for var j = 0; j < stop; j = j + 1 {
+            for j in 0..<stop {
                 if items[j] > items[j + 1] {
                     exchange(&items, i: j, j: j + 1)
                 }
