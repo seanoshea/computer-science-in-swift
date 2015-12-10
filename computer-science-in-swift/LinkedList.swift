@@ -85,7 +85,7 @@ class LinkedList: NSObject {
     }
     
     func toArray() -> Array<Int> {
-        var result:Array<Int> = []
+        var result = Array<Int>()
         for var i = 0; i < self.length; i++ {
             result.append(self.item(i)!)
         }
