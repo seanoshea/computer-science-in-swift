@@ -27,9 +27,9 @@ class InsertionSort {
         var value:Int
         var i:Int
         var j:Int
-        for (i = 0; i < len; i++) {
+        for i = 0; i < len; i = i + 1 {
             value = items[i]
-            for (j = i - 1; j > -1 && items[j] > value; j--) {
+            for j = i - 1; j > -1 && items[j] > value; j = j - 1 {
                 items[j + 1] = items[j]
             }
             items[j + 1] = value;

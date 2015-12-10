@@ -23,9 +23,9 @@ import Foundation
 class SelectionSort {
     
     func selectionSort(inout items:Array<Int>) -> Array<Int> {
-        for (var i = 0; i < items.count; i++) {
+        for var i = 0; i < items.count; i = i + 1 {
             var min = i
-            for (var j = i + 1; j < items.count; j++) {
+            for var j = i + 1; j < items.count; j++ {
                 if items[j] < items[min] {
                     min = j
                 }

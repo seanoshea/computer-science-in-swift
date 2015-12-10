@@ -55,8 +55,8 @@ class InsertionSortTest: XCTestCase {
     }
 
     func testRandomArray() {
-        var original = [] as Array<Int>
-        for (var i = 1; i <= 100; i++) {
+        var original = Array<Int>()
+        for var i = 1; i <= 100; i = i + 1 {
             original.append(Int(rand() % 100 + 1));
         }
         var copied = original;

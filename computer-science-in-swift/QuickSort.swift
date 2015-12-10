@@ -51,15 +51,15 @@ class QuickSort {
         var j = right
         while (i <= j) {
             while (items[i] < pivot) {
-                i++
+                i = i + 1
             }
             while (items[j] > pivot) {
-                j--
+                j = j - 1
             }
             if i <= j {
                 exchange(&items, i:i, j:j)
-                i++
-                j--
+                i = i + 1
+                j = j - 1
             }
         }
         return i
