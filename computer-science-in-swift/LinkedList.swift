@@ -44,7 +44,7 @@ class LinkedList: NSObject {
             }
             current.next = node
         }
-        self.length++
+        self.length = self.length + 1
     }
     
     func item(index:Int) -> Int? {
@@ -73,7 +73,7 @@ class LinkedList: NSObject {
                 }
                 previous.next = current.next
             }
-            self.length--
+            self.length = self.length - 1
             return current.data
         } else {
             return nil
@@ -86,15 +86,14 @@ class LinkedList: NSObject {
     
     func toArray() -> Array<Int> {
         var result = Array<Int>()
-        for var i = 0; i < self.length; i = i + 1 {
+        for i in 0..<self.length {
             result.append(self.item(i)!)
         }
         return result
     }
     
     func clear() {
-        let size = self.size();
-        for var i = 0; i < size; i = i + 1 {
+        for i in 0..<self.length {
             self.remove(i);
         }
         self.head = nil

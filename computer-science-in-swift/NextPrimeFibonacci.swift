@@ -33,7 +33,7 @@ class NextPrimeFibonacci {
                 nextPrimeFibonacci = num
                 break;
             }
-            nextPrimeFibonacci++
+            nextPrimeFibonacci = nextPrimeFibonacci + 1
         }
         return nextPrimeFibonacci
     }
