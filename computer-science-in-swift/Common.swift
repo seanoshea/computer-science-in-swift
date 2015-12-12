@@ -20,21 +20,11 @@
 
 import Foundation
 
-class SelectionSort {
+struct Common {
     
-    func selectionSort(inout items:Array<Int>) -> Array<Int> {
-        for var i = 0; i < items.count; i = i + 1 {
-            var min = i
-            for var j = i + 1; j < items.count; j++ {
-                if items[j] < items[min] {
-                    min = j
-                }
-            }
-            if i != min {
-                Common.exchange(&items, i:i, j:min)
-            }
-        }
-        return items
+    static func exchange<T>(inout items:[T], i:Int, j:Int) {
+        let temp = items[i]
+        items[i] = items[j]
+        items[j] = temp
     }
 }
-

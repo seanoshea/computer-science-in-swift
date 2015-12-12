@@ -27,16 +27,10 @@ class BubbleSort {
             let stop = (items.count - 1) - i
             for j in 0..<stop {
                 if items[j] > items[j + 1] {
-                    exchange(&items, i: j, j: j + 1)
+                    Common.exchange(&items, i: j, j: j + 1)
                 }
             }
         }
         return items
-    }
-    
-    func exchange<T>(inout items:[T], i:Int, j:Int) {
-        let temp = items[i]
-        items[i] = items[j]
-        items[j] = temp
     }
 }

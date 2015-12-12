@@ -57,17 +57,11 @@ class QuickSort {
                 j = j - 1
             }
             if i <= j {
-                exchange(&items, i:i, j:j)
+                Common.exchange(&items, i:i, j:j)
                 i = i + 1
                 j = j - 1
             }
         }
         return i
-    }
-    
-    func exchange<T>(inout items:[T], i:Int, j:Int) {
-        let temp = items[i]
-        items[i] = items[j]
-        items[j] = temp
     }
 }
