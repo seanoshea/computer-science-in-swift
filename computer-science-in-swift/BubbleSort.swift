@@ -27,7 +27,7 @@ class BubbleSort {
             let stop = (items.count - 1) - i
             for j in 0..<stop {
                 if items[j] > items[j + 1] {
-                    Common.exchange(&items, i: j, j: j + 1)
+                    swap(&items[j], &items[j + 1])
                 }
             }
         }

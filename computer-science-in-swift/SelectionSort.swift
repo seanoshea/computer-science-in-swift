@@ -31,7 +31,7 @@ class SelectionSort {
                 }
             }
             if i != min {
-                Common.exchange(&items, i:i, j:min)
+                swap(&items[i], &items[min])
             }
         }
         return items
