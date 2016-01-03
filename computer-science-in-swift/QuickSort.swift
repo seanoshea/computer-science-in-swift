@@ -20,8 +20,6 @@
 
 import Foundation
 
-import Darwin
-
 class QuickSort {
     
     func quickSort(inout items:Array<Int>) -> Array<Int> {

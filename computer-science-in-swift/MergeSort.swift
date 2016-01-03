@@ -20,8 +20,6 @@
 
 import Foundation
 
-import Darwin
-
 class MergeSort {
     
     func mergeSort(inout items:Array<Int>) -> Array<Int> {

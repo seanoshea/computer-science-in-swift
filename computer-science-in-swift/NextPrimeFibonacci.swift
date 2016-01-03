@@ -19,7 +19,6 @@
 // THE SOFTWARE.
 
 import Foundation
-import UIKit
 
 class NextPrimeFibonacci {
     
