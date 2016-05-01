@@ -24,12 +24,14 @@ class InsertionSort {
     
     func insertionSort(inout items:Array<Int>) -> Array<Int> {
         for (i, _) in items.enumerate() {
-            var j:Int
+            var j:Int = i - 1
             let value = items[i]
-            for j = i - 1; j > -1 && items[j] > value; j = j - 1 {
+            for _ in j.stride(to: -1, by: -1) {
+                guard j > -1 && items[j] > value else { break }
                 items[j + 1] = items[j]
+                j = j - 1
             }
-            items[j + 1] = value;
+            items[j + 1] = value
         }
         return items
     }
