@@ -51,8 +51,9 @@ class LinkedList: NSObject {
         if index > -1 && index < self.length {
             var current:LinkedListNode = self.head!
             var i = 0
-            while i++ < index {
+            while i < index {
                 current = current.next!
+                i = i + 1
             }
             return current.data
         }
@@ -67,9 +68,10 @@ class LinkedList: NSObject {
             if index == 0 {
                 self.head = current.next
             } else {
-                while i++ < index {
+                while i < index {
                     previous = current
                     current = current.next!
+                    i = i + 1
                 }
                 previous.next = current.next
             }

@@ -40,8 +40,8 @@ class NextPrimeFibonacci {
     func isPrime(input: Int) -> Bool {
         var isPrime = input >= 2
         if (isPrime) {
-            for var i = 2; i < input - 1; i = i + 1 {
-                if input % i == 0 {
+            for index in 2.stride(to: input - 1, by: 1) {
+                if input % index == 0 {
                     isPrime = false
                     break;
                 }

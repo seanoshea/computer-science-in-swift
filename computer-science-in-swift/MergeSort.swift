@@ -41,10 +41,12 @@ class MergeSort {
         var ir = 0
         while (il < left.count && ir < right.count) {
             if left[il] < right[ir] {
-                let element = left[il++]
+                let element = left[il]
+                il = il + 1
                 result.append(element)
             } else {
-                let element = right[ir++]
+                let element = right[ir]
+                ir = ir + 1
                 result.append(element)
             }
         }

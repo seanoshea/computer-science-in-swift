@@ -56,7 +56,7 @@ class MergeSortTest : XCTestCase {
     
     func testRandomArray() {
         var original = Array<Int>()
-        for var i = 1; i <= 100; i = i + 1 {
+        for _ in 1.stride(to: 100, by: 1) {
             original.append(Int(rand() % 100 + 1));
         }
         var copied = original;

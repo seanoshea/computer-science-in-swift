@@ -79,7 +79,7 @@ class BinarySearchTree {
     
     func size() -> Int {
         var length:Int = 0
-        self.traverse { (BinarySearchTreeNode node) -> () in
+        self.traverse { (node) -> () in
             length = length + 1
         }
         return length
