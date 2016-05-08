@@ -1,4 +1,3 @@
 source 'https://rubygems.org'
 
-gem 'slather'
-gem 'fastlane'
+gem 'fastlane', '1.83.0'

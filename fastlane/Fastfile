@@ -1,27 +1,7 @@
 before_all do
-  xctool :test
+
 end
 
 lane :test do
-
-end
-
-lane :beta do
-
-end
-
-lane :deploy do
-
-end
-
-lane :inhouse do
-
-end
-
-after_all do |lane|
-
-end
-
-error do |lane, exception|
-
+  scan(scheme: "computer-science-in-swift")
 end
