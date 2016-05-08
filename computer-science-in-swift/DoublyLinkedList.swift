@@ -20,85 +20,90 @@
 
 import Foundation
 
-class LinkedListNode {
+class DoublyLinkedListNode {
     var data:Int = 0
-    var next:LinkedListNode?
+    var previous:DoublyLinkedListNode?
+    var next:DoublyLinkedListNode?
 }
 
-class LinkedList: NSObject {
-    
-    var head:LinkedListNode?
+class DoublyLinkedList {
+
+    var head:DoublyLinkedListNode?
+    var tail:DoublyLinkedListNode?
     var length:Int = 0
     
     func add(data:Int) {
-        let node = LinkedListNode()
+        let node = DoublyLinkedListNode()
         node.data = data
-        var current:LinkedListNode
-        
-        if self.head == nil {
+        if self.length == 0 {
             self.head = node
+            self.tail = node
         } else {
-            current = self.head!
-            while current.next != nil {
-                current = current.next!
-            }
-            current.next = node
+            self.tail!.next = node
+            node.previous = self.tail
+            self.tail = node
         }
         self.length = self.length + 1
     }
     
     func item(index:Int) -> Int? {
         if index > -1 && index < self.length {
-            var current:LinkedListNode = self.head!
+            var current = self.head
             var i = 0
             while i < index {
-                current = current.next!
+                current = current!.next
                 i = i + 1
             }
-            return current.data
-        }
-        return nil
-    }
-    
-    func remove(index:Int) -> Int? {
-        if index > -1 && index < self.length {
-            var current:LinkedListNode = self.head!
-            var previous:LinkedListNode = LinkedListNode()
-            var i = 0
-            if index == 0 {
-                self.head = current.next
-            } else {
-                while i < index {
-                    previous = current
-                    current = current.next!
-                    i = i + 1
-                }
-                previous.next = current.next
-            }
-            self.length = self.length - 1
-            return current.data
+            return current!.data
         } else {
             return nil
         }
     }
     
-    func size() -> Int {
-        return self.length
+    func remove(index:Int) -> Int? {
+        if index > -1 && index < self.length {
+            var current = self.head
+            var i = 0
+            if index == 0 {
+                if let possibleHead = current?.next {
+                    possibleHead.previous = nil
+                    self.head = possibleHead
+                } else {
+                    self.tail = nil
+                }
+            } else if index == self.length - 1 {
+                current = self.tail
+                self.tail = current!.previous
+                self.tail!.next = nil
+            } else {
+                while i < index {
+                    current = current!.next
+                    i = i + 1
+                }
+                let unwrappedCurrent = current!
+                unwrappedCurrent.previous!.next = unwrappedCurrent.next
+                unwrappedCurrent.next!.previous = unwrappedCurrent.previous
+            }
+            self.length = self.length - 1
+            return current!.data
+        } else {
+            return nil
+        }
     }
     
     func toArray() -> Array<Int> {
         var result = Array<Int>()
-        for i in 0..<self.length {
-            result.append(self.item(i)!)
+        var current = self.head
+        while current != nil {
+            let unwrappedCurrent = current!
+            result.append(unwrappedCurrent.data)
+            current = unwrappedCurrent.next
         }
         return result
     }
     
-    func clear() {
-        for i in 0..<self.length {
-            self.remove(i);
-        }
-        self.head = nil
-        self.length = 0
+    func size() -> Int {
+        return self.length
     }
 }
+
