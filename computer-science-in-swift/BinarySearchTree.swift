@@ -64,17 +64,17 @@ class BinarySearchTree {
     func contains(value:Int) -> Bool {
         var found = false
         var current = self.root
-        while (!found && current != nil) {
+        while !found && current != nil {
             let unwrappedCurrent = current!
             if value < unwrappedCurrent.value {
                 current = unwrappedCurrent.left
             } else if value > unwrappedCurrent.value {
                 current = unwrappedCurrent.right
             } else {
-                found = true;
+                found = true
             }
         }
-        return found;
+        return found
     }
     
     func size() -> Int {
@@ -86,11 +86,11 @@ class BinarySearchTree {
     }
     
     func toArray() -> Array<Int> {
-        var result = Array<Int>();
+        var result = Array<Int>()
         self.traverse { (node:BinarySearchTreeNode) -> () in
-            result.append(node.value);
+            result.append(node.value)
         }
-        return result;
+        return result
     }
     
     func toString() -> String {
@@ -103,17 +103,17 @@ class BinarySearchTree {
     }
     
     func traverse(fn:(BinarySearchTreeNode) -> ()) {
-        self.inOrderTraversal(self.root, fn: fn);
+        self.inOrderTraversal(self.root, fn: fn)
     }
     
     func inOrderTraversal(node:BinarySearchTreeNode?, fn:(BinarySearchTreeNode) -> ()) {
         if let nonNilNode = node {
-            if (nonNilNode.left != nil) {
-                self.inOrderTraversal(nonNilNode.left, fn: fn);
+            if nonNilNode.left != nil {
+                self.inOrderTraversal(nonNilNode.left, fn: fn)
             }
             fn(nonNilNode)
-            if (nonNilNode.right != nil) {
-                self.inOrderTraversal(nonNilNode.right, fn: fn);
+            if nonNilNode.right != nil {
+                self.inOrderTraversal(nonNilNode.right, fn: fn)
             }
         }
     }

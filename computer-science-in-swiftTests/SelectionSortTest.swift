@@ -57,9 +57,9 @@ class SelectionSortTest: XCTestCase {
     func testRandomArray() {
         var original = Array<Int>()
         for _ in 1.stride(to: 100, by: 1) {
-            original.append(Int(rand() % 100 + 1));
+            original.append(Int(rand() % 100 + 1))
         }
-        var copied = original;
+        var copied = original
         original.sortInPlace({ $1 > $0 })
         let sorted = selectionSort.selectionSort(&copied)
         XCTAssert(sorted == original)

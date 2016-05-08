@@ -39,7 +39,7 @@ class MergeSort {
         var result:Array<Int> = [Int]()
         var il = 0
         var ir = 0
-        while (il < left.count && ir < right.count) {
+        while il < left.count && ir < right.count {
             if left[il] < right[ir] {
                 let element = left[il]
                 il = il + 1

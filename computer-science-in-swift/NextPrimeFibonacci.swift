@@ -26,11 +26,11 @@ class NextPrimeFibonacci {
     
     func nextPrimeFibonacci(input: Int) -> Int {
         var nextPrimeFibonacci = 0
-        while (true) {
+        while true {
             let num = fibonacci(nextPrimeFibonacci)
-            if (num > input && isPrime(num)) {
+            if num > input && isPrime(num) {
                 nextPrimeFibonacci = num
-                break;
+                break
             }
             nextPrimeFibonacci = nextPrimeFibonacci + 1
         }
@@ -39,11 +39,11 @@ class NextPrimeFibonacci {
     
     func isPrime(input: Int) -> Bool {
         var isPrime = input >= 2
-        if (isPrime) {
+        if isPrime {
             for index in 2.stride(to: input - 1, by: 1) {
                 if input % index == 0 {
                     isPrime = false
-                    break;
+                    break
                 }
             }
         }
@@ -51,7 +51,7 @@ class NextPrimeFibonacci {
     }
     
     func fibonacci(input: Int) -> Int {
-        if (input <= 1) {
+        if input <= 1 {
             return 1
         } else {
             let memoized = map[input]

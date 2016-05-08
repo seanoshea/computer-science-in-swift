@@ -35,7 +35,7 @@ class QuickSort {
             if left < index - 1 {
                 qs(&items, left:left, right:index - 1)
             }
-            if (index < right) {
+            if index < right {
                 qs(&items, left:index, right:right)
             }
         }
@@ -47,11 +47,11 @@ class QuickSort {
         let pivot = items[index]
         var i = left
         var j = right
-        while (i <= j) {
-            while (items[i] < pivot) {
+        while i <= j {
+            while items[i] < pivot {
                 i = i + 1
             }
-            while (items[j] > pivot) {
+            while items[j] > pivot {
                 j = j - 1
             }
             if i <= j {
