@@ -22,5 +22,20 @@ import XCTest
 
 class BTreeTest: XCTestCase {
     
-    var bTree = BTree()
+    let bTree = BTree()
+    
+    func testInitialsation() {
+        XCTAssertTrue(bTree.minKeySize == 1)
+        XCTAssertTrue(bTree.maxChildrenSize == 3)
+        XCTAssertTrue(bTree.maxKeySize == 2)
+        XCTAssertTrue(bTree.maxChildrenSize == 3)
+    }
+    
+    func testCustomInitialisation() {
+        let customBTree = BTree(order:3)
+        XCTAssertTrue(customBTree.minKeySize == 3)
+        XCTAssertTrue(customBTree.maxChildrenSize == 7)
+        XCTAssertTrue(customBTree.maxKeySize == 6)
+        XCTAssertTrue(customBTree.maxChildrenSize == 7)
+    }
 }

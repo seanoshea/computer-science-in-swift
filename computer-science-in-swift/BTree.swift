@@ -20,6 +20,93 @@
 
 import Foundation
 
-class BTree {
+class Node {
     
+}
+
+class BTree : NSObject {
+    
+    var minKeySize = 1
+    var minChildrenSize:Int = 0
+    var maxKeySize:Int = 0
+    var maxChildrenSize:Int = 0
+    var size:Int = 0
+    var root:Node? = nil
+
+    override init() {
+        minKeySize = 1
+        super.init()
+        self.commonInit()
+    }
+    
+    init(order:Int) {
+        minKeySize = order
+        super.init()
+        self.commonInit()
+    }
+    
+    func commonInit() {
+        minChildrenSize = minKeySize + 1
+        maxKeySize = 2 * minKeySize
+        maxChildrenSize = maxKeySize + 1
+    }
+}
+
+class BTreeNode : NSObject {
+    
+    var keys:[Int] = [Int]()
+    var keysSize:Int = 0
+    var children:[BTreeNode]?
+    var childrenSize = 0
+    var parent:BTreeNode? = nil
+    
+    init(parentParam:BTreeNode, maxKeySize:Int, maxChildrenSize:Int) {
+        parent = parentParam
+        keys = [Int](count:maxKeySize + 1, repeatedValue: 0)
+        keysSize = 0
+        children = [BTreeNode]()
+        childrenSize = 0
+        super.init()
+    }
+    
+    func getKey(index:Int) -> Int {
+        guard index < self.keys.count else { return -1 }
+        return self.keys[index]
+    }
+    
+    func indexOf(value:Int) -> Int {
+        var indexOfValue = -1
+        for (index, arrayValue) in self.keys.enumerate() {
+            if arrayValue == value {
+                indexOfValue = index
+                break
+            }
+        }
+        return indexOfValue
+    }
+    
+    func addKey(value:Int) {
+        self.keys[keysSize] = value
+        self.keysSize = self.keysSize + 1
+        self.keys.sortInPlace()
+    }
+    
+    func removeKey(value:Int) -> Int {
+        guard keysSize > 0 else { return -1 }
+        var found = false
+        var removed = -1
+        for (index, arrayValue) in self.keys.enumerate() {
+            if value == arrayValue {
+                found = true
+                removed = arrayValue
+            } else if found {
+                self.keys[index - 1] = self.keys[index]
+            }
+        }
+        if found {
+            self.keysSize = self.keysSize - 1
+            self.keys.removeLast()
+        }
+        return removed
+    }
 }
