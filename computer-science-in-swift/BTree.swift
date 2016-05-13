@@ -120,4 +120,61 @@ class BTreeNode : NSObject {
         self.keys.removeLast()
         return removed
     }
+    
+    func addChild(child:BTreeNode) {
+        child.parent = self
+        self.children?.append(child)
+        self.childrenSize = self.childrenSize + 1
+        self.children?.sortInPlace({ (lhs:BTreeNode, rhs:BTreeNode) -> Bool in
+            return lhs < rhs
+        })
+    }
+    
+    func getChildAtIndex(index:Int) -> BTreeNode? {
+        guard index < self.childrenSize else { return nil }
+        return self.children![index]
+    }
+    
+    func removeChild(child:BTreeNode) -> Bool {
+        guard self.childrenSize > 0 else { return false }
+        var found = false
+        for (index, element) in (self.children?.enumerate())! {
+            if element == child {
+                found = true
+            } else if found {
+                self.children![index - 1] = self.children![index]
+            }
+        }
+        if found {
+            self.childrenSize = self.childrenSize - 1
+            self.children?.removeLast()
+        }
+        return found
+    }
+    
+    func removeChildAtIndex(index:Int) -> Bool {
+        guard self.childrenSize > index else { return false }
+        for arrayIndex in (index + 1).stride(to: self.keysSize, by: 1) {
+            self.keys[arrayIndex - 1] = self.keys[arrayIndex]
+        }
+        self.childrenSize = self.childrenSize - 1
+        self.children?.removeLast()
+        return true
+    }
+}
+
+extension BTreeNode : Comparable {
+    
+}
+
+func < (lhs: BTreeNode, rhs: BTreeNode) -> Bool {
+    return lhs.getKeyAtIndex(0) < rhs.getKeyAtIndex(0)
+}
+
+func > (lhs: BTreeNode, rhs: BTreeNode) -> Bool {
+    return lhs.getKeyAtIndex(0) > rhs.getKeyAtIndex(0)
+}
+
+func == (lhs: BTreeNode, rhs: BTreeNode) -> Bool {
+    return lhs.getKeyAtIndex(0) == rhs.getKeyAtIndex(0)
 }

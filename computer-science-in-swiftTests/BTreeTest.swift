@@ -43,9 +43,15 @@ class BTreeTest : XCTestCase {
 class BTreeNodeTets : XCTestCase {
     
     var bTreeNode:BTreeNode?
+    var one:BTreeNode?
+    var two:BTreeNode?
     
     override func setUp() {
         bTreeNode = BTreeNode.init(parentParam: nil, maxKeySize: 3, maxChildrenSize: 2)
+        self.one = BTreeNode.init(parentParam: nil, maxKeySize: 3, maxChildrenSize: 2)
+        self.one!.addKey(11)
+        self.two = BTreeNode.init(parentParam: nil, maxKeySize: 3, maxChildrenSize: 2)
+        self.two!.addKey(12)
     }
     
     func testGetKeyThatIsntThere() {
@@ -109,5 +115,43 @@ class BTreeNodeTets : XCTestCase {
         XCTAssertTrue(self.bTreeNode?.keysSize == 3)
         XCTAssertTrue(self.bTreeNode?.removeKeyAtIndex(1) == 14)
         XCTAssertTrue(self.bTreeNode?.keysSize == 2)
+    }
+    
+    func testGetChildThatIsntThere() {
+        XCTAssertTrue(self.bTreeNode?.getChildAtIndex(14) == nil)
+    }
+    
+    func testGetChildThatIsThere() {
+        self.addTwoChildren()
+        let child = self.bTreeNode?.getChildAtIndex(0)
+        XCTAssertTrue(child?.getKeyAtIndex(0) == 11)
+    }
+    
+    func testRemoveChildThatIsntThere() {
+        XCTAssertFalse(self.bTreeNode!.removeChild(self.one!))
+    }
+    
+    func testRemoveChildThatIsThere() {
+        self.addTwoChildren()
+        XCTAssertTrue(self.bTreeNode!.removeChild(self.one!))
+        XCTAssertTrue(self.bTreeNode?.childrenSize == 1)
+    }
+    
+    func testRemoveChildAtIndexThatIsntThere() {
+        XCTAssertFalse(self.bTreeNode!.removeChildAtIndex(0))
+    }
+    
+    func testRemoveChildAtIndexThatIsThere() {
+        self.addTwoChildren()
+        XCTAssertTrue(self.bTreeNode!.childrenSize == 2)
+        XCTAssertTrue(self.bTreeNode!.removeChildAtIndex(0))
+        XCTAssertTrue(self.bTreeNode!.childrenSize == 1)
+        let retrievedNode = self.bTreeNode?.getChildAtIndex(0)
+        XCTAssertTrue(retrievedNode?.getKeyAtIndex(0) == 11)
+    }
+    
+    func addTwoChildren() {
+        self.bTreeNode?.addChild(self.one!)
+        self.bTreeNode?.addChild(self.two!)
     }
 }
