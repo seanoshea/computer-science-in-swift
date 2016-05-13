@@ -60,21 +60,21 @@ class BTreeNode : NSObject {
     var childrenSize = 0
     var parent:BTreeNode? = nil
     
-    init(parentParam:BTreeNode, maxKeySize:Int, maxChildrenSize:Int) {
+    init(parentParam:BTreeNode?, maxKeySize:Int, maxChildrenSize:Int) {
         parent = parentParam
-        keys = [Int](count:maxKeySize + 1, repeatedValue: 0)
+        keys = [Int]()
         keysSize = 0
         children = [BTreeNode]()
         childrenSize = 0
         super.init()
     }
     
-    func getKey(index:Int) -> Int {
-        guard index < self.keys.count else { return -1 }
+    func getKeyAtIndex(index:Int) -> Int {
+        guard index < self.keysSize else { return -1 }
         return self.keys[index]
     }
     
-    func indexOf(value:Int) -> Int {
+    func indexOfValue(value:Int) -> Int {
         var indexOfValue = -1
         for (index, arrayValue) in self.keys.enumerate() {
             if arrayValue == value {
@@ -86,13 +86,13 @@ class BTreeNode : NSObject {
     }
     
     func addKey(value:Int) {
-        self.keys[keysSize] = value
+        self.keys.append(value)
         self.keysSize = self.keysSize + 1
         self.keys.sortInPlace()
     }
     
     func removeKey(value:Int) -> Int {
-        guard keysSize > 0 else { return -1 }
+        guard self.keysSize > 0 else { return -1 }
         var found = false
         var removed = -1
         for (index, arrayValue) in self.keys.enumerate() {
@@ -107,6 +107,17 @@ class BTreeNode : NSObject {
             self.keysSize = self.keysSize - 1
             self.keys.removeLast()
         }
+        return removed
+    }
+    
+    func removeKeyAtIndex(index:Int) -> Int {
+        guard self.keysSize > index else { return -1 }
+        let removed = self.keys[index]
+        for arrayIndex in (index + 1).stride(to: self.keysSize, by: 1) {
+            self.keys[arrayIndex - 1] = self.keys[arrayIndex]
+        }
+        self.keysSize = self.keysSize - 1
+        self.keys.removeLast()
         return removed
     }
 }

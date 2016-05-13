@@ -20,7 +20,7 @@
 
 import XCTest
 
-class BTreeTest: XCTestCase {
+class BTreeTest : XCTestCase {
     
     let bTree = BTree()
     
@@ -37,5 +37,77 @@ class BTreeTest: XCTestCase {
         XCTAssertTrue(customBTree.maxChildrenSize == 7)
         XCTAssertTrue(customBTree.maxKeySize == 6)
         XCTAssertTrue(customBTree.maxChildrenSize == 7)
+    }
+}
+
+class BTreeNodeTets : XCTestCase {
+    
+    var bTreeNode:BTreeNode?
+    
+    override func setUp() {
+        bTreeNode = BTreeNode.init(parentParam: nil, maxKeySize: 3, maxChildrenSize: 2)
+    }
+    
+    func testGetKeyThatIsntThere() {
+        XCTAssertTrue(self.bTreeNode!.getKeyAtIndex(14) == -1)
+    }
+    
+    func testGetKeyThatIsThere() {
+        self.bTreeNode?.addKey(14)
+        let expectedValue = self.bTreeNode!.getKeyAtIndex(0)
+        XCTAssertTrue(expectedValue == 14)
+    }
+    
+    func testGetIndexThatIsntThere() {
+        XCTAssertTrue(self.bTreeNode?.indexOfValue(33) == -1)
+    }
+    
+    func testGetIndexThatIsThere() {
+        self.bTreeNode?.addKey(7)
+        self.bTreeNode?.addKey(14)
+        self.bTreeNode?.addKey(21)
+        XCTAssertTrue(self.bTreeNode?.indexOfValue(21) == 2)
+    }
+    
+    func testRemoveKeyFromEmptyTreeNode() {
+        XCTAssert(self.bTreeNode?.keysSize == 0)
+        XCTAssertTrue(self.bTreeNode?.removeKey(33) == -1)
+        XCTAssert(self.bTreeNode?.keysSize == 0)
+    }
+    
+    func testRemoveKeyThatIsntThere() {
+        self.bTreeNode?.addKey(32)
+        XCTAssertTrue(self.bTreeNode?.keysSize == 1)
+        XCTAssertTrue(self.bTreeNode?.removeKey(33) == -1)
+        XCTAssertTrue(self.bTreeNode?.keysSize == 1)
+    }
+    
+    func testRemoveKeyThatIsThere() {
+        self.bTreeNode?.addKey(7)
+        self.bTreeNode?.addKey(14)
+        self.bTreeNode?.addKey(21)
+        XCTAssertTrue(self.bTreeNode?.keysSize == 3)
+        XCTAssertTrue(self.bTreeNode?.removeKey(7) == 7)
+        XCTAssertTrue(self.bTreeNode?.keysSize == 2)
+    }
+    
+    func testRemoveKeyAtIndexFromEmptyTreeNode() {
+        XCTAssertTrue(self.bTreeNode?.removeKeyAtIndex(13) == -1)
+    }
+    
+    func testRemoveKeyAtIndexThatIsntThere() {
+        self.bTreeNode?.addKey(7)
+        XCTAssertTrue(self.bTreeNode?.keysSize == 1)
+        XCTAssertTrue(self.bTreeNode?.removeKeyAtIndex(1) == -1)
+        XCTAssertTrue(self.bTreeNode?.keysSize == 1)
+    }
+    
+    func testRemoveKeyAtIndex() {
+        self.bTreeNode?.addKey(7)
+        self.bTreeNode?.addKey(14)
+        self.bTreeNode?.addKey(21)
+        XCTAssertTrue(self.bTreeNode?.keysSize == 3)
+        XCTAssertTrue(self.bTreeNode?.removeKeyAtIndex(1) == 14)
+        XCTAssertTrue(self.bTreeNode?.keysSize == 2)
     }
 }
