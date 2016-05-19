@@ -20,10 +20,6 @@
 
 import Foundation
 
-class Node {
-    
-}
-
 class BTree : NSObject {
     
     var minKeySize = 1
@@ -31,7 +27,7 @@ class BTree : NSObject {
     var maxKeySize:Int = 0
     var maxChildrenSize:Int = 0
     var size:Int = 0
-    var root:Node? = nil
+    var root:BTreeNode? = nil
 
     override init() {
         minKeySize = 1
@@ -49,6 +45,96 @@ class BTree : NSObject {
         minChildrenSize = minKeySize + 1
         maxKeySize = 2 * minKeySize
         maxChildrenSize = maxKeySize + 1
+    }
+    
+    func add(value:Int) -> Bool {
+        if self.root != nil {
+            var node = self.root
+            while (node != nil) {
+                if node!.childrenSize == 0 {
+                    node!.addKey(value)
+                    if node!.keysSize <= self.maxKeySize {
+                        // A-OK
+                        break
+                    }
+                    self.split(node!)
+                    break
+                }
+                // lesser
+                let lesser:Int = node!.getKeyAtIndex(0)
+                if value <= lesser {
+                    node = node!.getChildAtIndex(0)
+                    continue
+                }
+                // greater
+                let numberOfKeys = node!.keysSize
+                let last = numberOfKeys - 1
+                let greater = node!.getKeyAtIndex(last)
+                if (value > greater) {
+                    node = node!.getChildAtIndex(numberOfKeys)
+                    continue
+                }
+                // Search internal nodes
+                for index in 1.stride(to: numberOfKeys, by: 1) {
+                    let prev = node!.getKeyAtIndex(index - 1)
+                    let next = node!.getKeyAtIndex(index)
+                    if value > prev && value <= next {
+                        node = node!.getChildAtIndex(index)
+                        break
+                    }
+                }
+            }
+        } else {
+            self.root = BTreeNode.init(parentParam: nil, maxKeySize: self.maxKeySize, maxChildrenSize: self.maxChildrenSize)
+        }
+        return false
+    }
+    
+    func split(nodeToSplit:BTreeNode) {
+        var node = nodeToSplit
+        let numberOfKeys = node.keysSize
+        let medianIndex:Int = numberOfKeys / 2
+        let medianValue = node.getKeyAtIndex(medianIndex)
+        let left = BTreeNode.init(parentParam: nil, maxKeySize: self.maxKeySize, maxChildrenSize: self.maxChildrenSize)
+        for arrayIndex in 0.stride(to: medianIndex, by: 1) {
+            left.addKey(node.getKeyAtIndex(arrayIndex))
+        }
+        if node.childrenSize > 0 {
+            for arrayIndex in 0.stride(to: medianIndex, by: 1) {
+                if let possibleChild = node.getChildAtIndex(arrayIndex) {
+                    left.addChild(possibleChild)
+                }
+            }
+        }
+        let right = BTreeNode.init(parentParam: nil, maxKeySize: self.maxKeySize, maxChildrenSize: self.maxChildrenSize)
+        for arrayIndex in (medianIndex + 1).stride(to: numberOfKeys, by: 1) {
+            right.addKey(node.getKeyAtIndex(arrayIndex))
+        }
+        if node.childrenSize > 0 {
+            for arrayIndex in (medianIndex + 1).stride(to: node.childrenSize, by: 1) {
+                if let possibleChild = node.getChildAtIndex(arrayIndex) {
+                    right.addChild(possibleChild)
+                }
+            }
+        }
+        if node.parent == nil {
+            let newRoot = BTreeNode.init(parentParam: nil, maxKeySize: self.maxKeySize, maxChildrenSize: self.maxChildrenSize)
+            newRoot.addKey(medianValue)
+            node.parent = newRoot
+            self.root = newRoot
+            node = self.root!
+            node.addChild(left)
+            node.addChild(right)
+        } else {
+            let parent = node.parent!
+            parent.addKey(medianValue)
+            parent.removeChild(node)
+            parent.addChild(left)
+            parent.addChild(right)
+            if parent.keysSize > self.maxKeySize {
+                self.split(parent)
+            }
+        }
     }
 }
 
