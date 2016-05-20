@@ -45,4 +45,16 @@ class MultiplicationTest : XCTestCase {
         XCTAssertTrue(Multiplication.regularMultiplication([1], bottom: [-1]) == -1, "1 x -1 == -1")
         XCTAssertTrue(Multiplication.regularMultiplication([-1], bottom: [-1]) == 1, "-1 x -1 == 1")
     }
+    
+    func testDifferentSizes() {
+        XCTAssertTrue(Multiplication.regularMultiplication([5, 6, 7], bottom: [1, 2, 3, 4]) == 699678, "Result should be 699678")
+        XCTAssertTrue(Multiplication.regularMultiplication([1, 2, 3, 4], bottom: [1, 2]) == 14808, "Result should be 699678")
+    }
+    
+    func testTens() {
+        XCTAssertTrue(Multiplication.regularMultiplication([1, 0], bottom: [1, 0]) == 100, "Result should be 100")
+        XCTAssertTrue(Multiplication.regularMultiplication([1, 0], bottom: [1]) == 10, "Result should be 10")
+        XCTAssertTrue(Multiplication.regularMultiplication([1, 0], bottom: [-1]) == -10, "Result should be -10")
+        XCTAssertTrue(Multiplication.regularMultiplication([1, 0], bottom: [-1, 0]) == -100, "Result should be -100")
+    }
 }
