@@ -24,37 +24,82 @@ import XCTest
 class MultiplicationTest : XCTestCase {
     
     func testRegularMultiplication() {
-        let result = Multiplication.regularMultiplication([5, 6, 7, 8], bottom: [1, 2, 3, 4])
-        XCTAssertTrue(result == 7006652, "Result should be 7006652")
+        do {
+            let result = try Multiplication.regularMultiplication([5, 6, 7, 8], bottom: [1, 2, 3, 4])
+            XCTAssertTrue(result == 7006652, "Result should be 7006652")
+        } catch _ {
+            
+        }
     }
     
     func testBackwardsMultiplication() {
-        let result = Multiplication.regularMultiplication([1, 2, 3, 4], bottom: [5, 6, 7, 8])
-        XCTAssertTrue(result == 7006652, "Result should be 7006652")
+        do {
+            let result = try Multiplication.regularMultiplication([1, 2, 3, 4], bottom: [5, 6, 7, 8])
+            XCTAssertTrue(result == 7006652, "Result should be 7006652")
+        } catch _ {
+            
+        }
     }
     
     func testSimpleMultiplication() {
-        XCTAssertTrue(Multiplication.regularMultiplication([1], bottom: [1]) == 1, "1 x 1 == 1")
-        XCTAssertTrue(Multiplication.regularMultiplication([2], bottom: [1]) == 2, "2 x 1 == 2")
-        XCTAssertTrue(Multiplication.regularMultiplication([1], bottom: [0]) == 0, "1 x 0 == 0")
-        XCTAssertTrue(Multiplication.regularMultiplication([0], bottom: [0]) == 0, "0 x 0 == 0")
+        do {
+            let result1 = try Multiplication.regularMultiplication([1], bottom: [1])
+            XCTAssertTrue(result1 == 1, "1 x 1 == 1")
+            let result2 = try Multiplication.regularMultiplication([2], bottom: [1])
+            XCTAssertTrue(result2 == 2, "2 x 1 == 2")
+            let result3 = try Multiplication.regularMultiplication([1], bottom: [0])
+            XCTAssertTrue(result3 == 0, "1 x 0 == 0")
+            let result4 = try Multiplication.regularMultiplication([0], bottom: [0])
+            XCTAssertTrue(result4 == 0, "0 x 0 == 0")
+        } catch _ {
+            
+        }
     }
     
     func testNegatives() {
-        XCTAssertTrue(Multiplication.regularMultiplication([-1], bottom: [1]) == -1, "-1 x 1 == -1")
-        XCTAssertTrue(Multiplication.regularMultiplication([1], bottom: [-1]) == -1, "1 x -1 == -1")
-        XCTAssertTrue(Multiplication.regularMultiplication([-1], bottom: [-1]) == 1, "-1 x -1 == 1")
+        do {
+            let result1 = try Multiplication.regularMultiplication([-1], bottom: [1])
+            XCTAssertTrue(result1 == -1, "-1 x 1 == -1")
+            let result2 = try Multiplication.regularMultiplication([1], bottom: [-1])
+            XCTAssertTrue(result2 == -1, "1 x -1 == -1")
+            let result3 = try Multiplication.regularMultiplication([-1], bottom: [-1])
+            XCTAssertTrue(result3 == 1, "-1 x -1 == 1")
+        } catch _ {
+            
+        }
     }
     
     func testDifferentSizes() {
-        XCTAssertTrue(Multiplication.regularMultiplication([5, 6, 7], bottom: [1, 2, 3, 4]) == 699678, "Result should be 699678")
-        XCTAssertTrue(Multiplication.regularMultiplication([1, 2, 3, 4], bottom: [1, 2]) == 14808, "Result should be 699678")
+        do {
+            let result1 = try Multiplication.regularMultiplication([5, 6, 7], bottom: [1, 2, 3, 4])
+            XCTAssertTrue(result1 == 699678, "Result should be 699678")
+            let result2 = try Multiplication.regularMultiplication([1, 2, 3, 4], bottom: [1, 2])
+            XCTAssertTrue(result2 == 14808, "Result should be 699678")
+        } catch _ {
+            
+        }
     }
     
     func testTens() {
-        XCTAssertTrue(Multiplication.regularMultiplication([1, 0], bottom: [1, 0]) == 100, "Result should be 100")
-        XCTAssertTrue(Multiplication.regularMultiplication([1, 0], bottom: [1]) == 10, "Result should be 10")
-        XCTAssertTrue(Multiplication.regularMultiplication([1, 0], bottom: [-1]) == -10, "Result should be -10")
-        XCTAssertTrue(Multiplication.regularMultiplication([1, 0], bottom: [-1, 0]) == -100, "Result should be -100")
+        do {
+            let result1 = try Multiplication.regularMultiplication([1, 0], bottom: [1, 0])
+            XCTAssertTrue(result1 == 100, "Result should be 100")
+            let result2 = try Multiplication.regularMultiplication([1, 0], bottom: [1])
+            XCTAssertTrue(result2 == 10, "Result should be 10")
+            let result3 = try Multiplication.regularMultiplication([1, 0], bottom: [-1])
+            XCTAssertTrue(result3 == -10, "Result should be -10")
+            let result4 = try Multiplication.regularMultiplication([1, 0], bottom: [-1, 0])
+            XCTAssertTrue(result4 == -100, "Result should be -100")
+        } catch _ {
+            
+        }
+    }
+    
+    func testInvalidInput() {
+        do {
+            try Multiplication.regularMultiplication([10, 0], bottom: [1, 0])
+        } catch let error {
+            XCTAssertEqual(error as? MultiplicationError, MultiplicationError.CannotBeOverTen(message: "Cannot be over 10"))
+        }
     }
 }

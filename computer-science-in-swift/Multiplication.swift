@@ -22,23 +22,27 @@ import Foundation
 
 class Multiplication {
     
-    static func regularMultiplication(top:[Int], bottom:[Int]) -> Int {
+    static func regularMultiplication(top:[Int], bottom:[Int]) throws -> Int {
         guard top.count > 0 && bottom.count > 0 else { return 0 }
         var sum = 0
         var loop = 0
         for index in (bottom.count - 1).stride(to: -1, by: -1) {
             let pad = loop == 0 ? [Int]() : [Int](count: loop, repeatedValue: 0)
-            sum = sum + Multiplication.doMultiplication(bottom[index], top: top, pad: pad)
+            let element = bottom[index]
+            guard element < 10 else { throw MultiplicationError.CannotBeOverTen(message: "Cannot be over 10") }
+            try sum = sum + Multiplication.doMultiplication(element, top: top, pad: pad)
             loop = loop + 1
         }
         return sum
     }
     
-    static func doMultiplication(number:Int, top:[Int], pad:[Int]) -> Int {
+    static func doMultiplication(number:Int, top:[Int], pad:[Int]) throws -> Int {
         var result = pad
         var remainder = 0
         for index in (top.count - 1).stride(to: -1, by: -1) {
-            let intermediateProduct = (number * top[index]) + remainder
+            let element = top[index]
+            guard element < 10 else { throw MultiplicationError.CannotBeOverTen(message: "Cannot be over 10") }
+            let intermediateProduct = (number * element) + remainder
             remainder = intermediateProduct / 10
             result.insert((intermediateProduct % 10), atIndex: 0)
             if index == 0 && remainder > 0 {
@@ -52,9 +56,8 @@ class Multiplication {
         var sum = 0
         var loop = 0
         for index in (result.count - 1).stride(to: -1, by: -1) {
-            let element = result[index]
             let multiplier = 10 ^^ loop
-            sum = sum + (element * multiplier)
+            sum = sum + (result[index] * multiplier)
             loop = loop + 1
         }
         return sum
@@ -64,4 +67,15 @@ class Multiplication {
 infix operator ^^ { }
 func ^^ (radix: Int, power: Int) -> Int {
     return Int(pow(Double(radix), Double(power)))
+}
+
+enum MultiplicationError: ErrorType, Equatable {
+    case CannotBeOverTen(message: String)
+}
+
+func == (lhs: MultiplicationError, rhs: MultiplicationError) -> Bool {
+    switch (lhs, rhs) {
+    case (.CannotBeOverTen(let leftMessage), .CannotBeOverTen(let rightMessage)):
+        return leftMessage == rightMessage
+    }
 }
