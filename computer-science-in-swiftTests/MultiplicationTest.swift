@@ -98,8 +98,9 @@ class MultiplicationTest : XCTestCase {
     func testInvalidInput() {
         do {
             try Multiplication.regularMultiplication([10, 0], bottom: [1, 0])
+            XCTAssertTrue(1 == 0)
         } catch let error {
-            XCTAssertEqual(error as? MultiplicationError, MultiplicationError.CannotBeOverTen(message: "Cannot be over 10"))
+            XCTAssertTrue((error as? MultiplicationError) != nil)
         }
     }
 }

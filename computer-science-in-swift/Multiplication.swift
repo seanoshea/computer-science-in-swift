@@ -29,7 +29,7 @@ class Multiplication {
         for index in (bottom.count - 1).stride(to: -1, by: -1) {
             let pad = loop == 0 ? [Int]() : [Int](count: loop, repeatedValue: 0)
             let element = bottom[index]
-            guard element < 10 else { throw MultiplicationError.CannotBeOverTen(message: "Cannot be over 10") }
+            try Multiplication.checkForInvalidInput(element)
             try sum = sum + Multiplication.doMultiplication(element, top: top, pad: pad)
             loop = loop + 1
         }
@@ -41,7 +41,7 @@ class Multiplication {
         var remainder = 0
         for index in (top.count - 1).stride(to: -1, by: -1) {
             let element = top[index]
-            guard element < 10 else { throw MultiplicationError.CannotBeOverTen(message: "Cannot be over 10") }
+            try Multiplication.checkForInvalidInput(element)
             let intermediateProduct = (number * element) + remainder
             remainder = intermediateProduct / 10
             result.insert((intermediateProduct % 10), atIndex: 0)
@@ -62,6 +62,12 @@ class Multiplication {
         }
         return sum
     }
+    
+    static func checkForInvalidInput(element:Int) throws {
+        guard element < 10 else { throw MultiplicationError.CannotBeOverTen(message: "Cannot be over 10") }
+        guard element < Int.min else { throw MultiplicationError.CannotBeLessThanIntMin(message: "Cannot be less than Int.min") }
+        guard element > Int.max else { throw MultiplicationError.CannotBeGreaterThanIntMax(message: "Cannot be greater than Int.max") }
+    }
 }
 
 infix operator ^^ { }
@@ -69,13 +75,8 @@ func ^^ (radix: Int, power: Int) -> Int {
     return Int(pow(Double(radix), Double(power)))
 }
 
-enum MultiplicationError: ErrorType, Equatable {
+enum MultiplicationError: ErrorType {
     case CannotBeOverTen(message: String)
-}
-
-func == (lhs: MultiplicationError, rhs: MultiplicationError) -> Bool {
-    switch (lhs, rhs) {
-    case (.CannotBeOverTen(let leftMessage), .CannotBeOverTen(let rightMessage)):
-        return leftMessage == rightMessage
-    }
+    case CannotBeLessThanIntMin(message: String)
+    case CannotBeGreaterThanIntMax(message: String)
 }
