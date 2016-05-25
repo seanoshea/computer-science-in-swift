@@ -91,8 +91,8 @@ class DoublyLinkedList {
         }
     }
     
-    func toArray() -> Array<Int> {
-        var result = Array<Int>()
+    func toArray() -> [Int] {
+        var result = [Int]()
         var current = self.head
         while current != nil {
             let unwrappedCurrent = current!

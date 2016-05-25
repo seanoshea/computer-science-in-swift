@@ -22,7 +22,7 @@ import Foundation
 
 class InsertionSort {
     
-    func insertionSort(inout items:Array<Int>) -> Array<Int> {
+    func insertionSort(inout items:[Int]) -> [Int] {
         for (i, _) in items.enumerate() {
             var j:Int = i - 1
             let value = items[i]

@@ -22,7 +22,7 @@ import Foundation
 
 class SelectionSort {
     
-    func selectionSort(inout items:Array<Int>) -> Array<Int> {
+    func selectionSort(inout items:[Int]) -> [Int] {
         for (i, _) in items.enumerate() {
             var min = i
             for j in (i + 1)..<items.count {

@@ -22,7 +22,7 @@ import Foundation
 
 class BinarySearch {
     
-    func binarySearch(items: Array<Int>, value: Int) -> Int? {
+    func binarySearch(items: [Int], value: Int) -> Int? {
         var startIndex = 0
         var stopIndex = items.count - 1
         var middle = startIndex + ((stopIndex - startIndex) / 2)

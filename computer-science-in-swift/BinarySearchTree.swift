@@ -85,8 +85,8 @@ class BinarySearchTree {
         return length
     }
     
-    func toArray() -> Array<Int> {
-        var result = Array<Int>()
+    func toArray() -> [Int] {
+        var result = [Int]()
         self.traverse { (node:BinarySearchTreeNode) -> () in
             result.append(node.value)
         }

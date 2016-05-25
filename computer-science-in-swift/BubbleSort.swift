@@ -22,7 +22,7 @@ import Foundation
 
 class BubbleSort {
     
-    func bubbleSort(inout items:Array<Int>) -> Array<Int> {
+    func bubbleSort(inout items:[Int]) -> [Int] {
         for (i, _) in items.enumerate() {
             let stop = (items.count - 1) - i
             for j in 0..<stop {

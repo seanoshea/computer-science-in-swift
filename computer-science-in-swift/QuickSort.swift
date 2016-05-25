@@ -22,13 +22,13 @@ import Foundation
 
 class QuickSort {
     
-    func quickSort(inout items:Array<Int>) -> Array<Int> {
+    func quickSort(inout items:[Int]) -> [Int] {
         let left:Int = 0
         let right:Int = items.count - 1
         return qs(&items, left:left, right:right)
     }
     
-    func qs(inout items:Array<Int>, left:Int = 0, right:Int) -> Array<Int> {
+    func qs(inout items:[Int], left:Int = 0, right:Int) -> [Int] {
         var index:Int
         if items.count > 1 {
             index = partition(&items, left:left, right:right)
@@ -42,7 +42,7 @@ class QuickSort {
         return items
     }
     
-    func partition(inout items:Array<Int>, left:Int = 0, right:Int) -> Int {
+    func partition(inout items:[Int], left:Int = 0, right:Int) -> Int {
         let index:Int = Int(Double((right + left) / 2))
         let pivot = items[index]
         var i = left

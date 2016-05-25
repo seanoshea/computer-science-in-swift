@@ -55,7 +55,7 @@ class InsertionSortTest: XCTestCase {
     }
 
     func testRandomArray() {
-        var original = Array<Int>()
+        var original = [Int]()
         for _ in 1.stride(to: 100, by: 1) {
             original.append(Int(rand() % 100 + 1))
         }
