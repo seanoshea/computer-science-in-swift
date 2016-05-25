@@ -25,32 +25,32 @@ class MergeSortTest : XCTestCase {
     var mergeSort = MergeSort()
     
     func testMergeSort() {
-        var original = [1]
-        let sorted = mergeSort.mergeSort(&original)
+        let original = [1]
+        let sorted = mergeSort.mergeSort(original)
         XCTAssert(sorted == original)
     }
     
     func testMergeSortTwo() {
-        var original = [2, 1]
-        let sorted = mergeSort.mergeSort(&original)
+        let original = [2, 1]
+        let sorted = mergeSort.mergeSort(original)
         XCTAssert(sorted == [1, 2])
     }
     
     func testMergeSortThree() {
-        var original = [2, 1, 2, 2, 2, 0, 9]
-        let sorted = mergeSort.mergeSort(&original)
+        let original = [2, 1, 2, 2, 2, 0, 9]
+        let sorted = mergeSort.mergeSort(original)
         XCTAssert(sorted == [0, 1, 2, 2, 2, 2, 9])
     }
     
     func testMergeSortFour() {
-        var original = [1, 0, -1, 100]
-        let sorted = mergeSort.mergeSort(&original)
+        let original = [1, 0, -1, 100]
+        let sorted = mergeSort.mergeSort(original)
         XCTAssert(sorted == [-1, 0, 1, 100])
     }
     
     func testMergeSortFive() {
-        var original = [9, 6, 3]
-        let sorted = mergeSort.mergeSort(&original)
+        let original = [9, 6, 3]
+        let sorted = mergeSort.mergeSort(original)
         XCTAssert(sorted == [3, 6, 9])
     }
     
@@ -59,9 +59,9 @@ class MergeSortTest : XCTestCase {
         for _ in 1.stride(to: 100, by: 1) {
             original.append(Int(rand() % 100 + 1))
         }
-        var copied = original
+        let copied = original
         original.sortInPlace({ $1 > $0 })
-        let sorted = mergeSort.mergeSort(&copied)
+        let sorted = mergeSort.mergeSort(copied)
         XCTAssert(sorted == original)
     }
 }

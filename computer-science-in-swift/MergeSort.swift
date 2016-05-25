@@ -22,32 +22,30 @@ import Foundation
 
 class MergeSort {
     
-    func mergeSort(inout items:[Int]) -> [Int] {
+    func mergeSort(items:[Int]) -> [Int] {
         if items.count < 2 {
             return items
         }
         var middle = items.count
         middle /= 2
-        var left:[Int] = [Int](items[0 ..< middle])
-        var right:[Int] = [Int](items[middle ..< items.count])
-        var mergedLeft = mergeSort(&left)
-        var mergedRight = mergeSort(&right)
-        return merge(&mergedLeft, right:&mergedRight)
+        let left:[Int] = [Int](items[0 ..< middle])
+        let right:[Int] = [Int](items[middle ..< items.count])
+        let mergedLeft = mergeSort(left)
+        let mergedRight = mergeSort(right)
+        return merge(mergedLeft, right:mergedRight)
     }
     
-    func merge(inout left:[Int], inout right:[Int]) -> [Int] {
+    func merge(left:[Int], right:[Int]) -> [Int] {
         var result:[Int] = [Int]()
         var il = 0
         var ir = 0
         while il < left.count && ir < right.count {
             if left[il] < right[ir] {
-                let element = left[il]
+                result.append(left[il])
                 il = il + 1
-                result.append(element)
             } else {
-                let element = right[ir]
+                result.append(right[ir])
                 ir = ir + 1
-                result.append(element)
             }
         }
         result += [Int]([Int](left[il ..< left.count]))
