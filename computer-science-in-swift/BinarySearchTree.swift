@@ -24,6 +24,7 @@ class BinarySearchTreeNode {
     var value:Int = 0
     var left:BinarySearchTreeNode?
     var right:BinarySearchTreeNode?
+    var visited:Bool = false
 }
 
 class BinarySearchTree {
@@ -31,6 +32,7 @@ class BinarySearchTree {
     init() { }
     
     var root:BinarySearchTreeNode?
+    var nodeStack = [BinarySearchTreeNode]()
     
     func add(value:Int) {
         let node = BinarySearchTreeNode()
@@ -104,6 +106,34 @@ class BinarySearchTree {
     
     func traverse(fn:(BinarySearchTreeNode) -> ()) {
         self.inOrderTraversal(self.root, fn: fn)
+    }
+    
+    func found(node:BinarySearchTreeNode?, valueToSearchFor:Int) -> Bool {
+        if let unwrappedNode = node {
+            if !unwrappedNode.visited {
+                unwrappedNode.visited = true
+                self.nodeStack.append(unwrappedNode)
+                return unwrappedNode.value == valueToSearchFor
+            }
+        }
+        return false
+    }
+    
+    func depthFirstSearchForNode(valueToSearchFor:Int) -> Bool {
+        self.nodeStack = [BinarySearchTreeNode]()
+        if self.found(self.root, valueToSearchFor:valueToSearchFor) {
+            return true;
+        }
+        while nodeStack.count != 0 {
+            let node = self.nodeStack.removeLast()
+            if self.found(node.left, valueToSearchFor:valueToSearchFor) {
+                return true
+            }
+            if self.found(node.right, valueToSearchFor:valueToSearchFor) {
+                return true
+            }
+        }
+        return false
     }
     
     func inOrderTraversal(node:BinarySearchTreeNode?, fn:(BinarySearchTreeNode) -> ()) {
