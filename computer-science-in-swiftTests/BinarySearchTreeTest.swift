@@ -51,10 +51,14 @@ class BinarySearchTreeTest: XCTestCase {
         XCTAssertFalse(binarySearchTree.contains(44), "44 should not be in the bst")
     }
     
-    func testDFS() {
+// MARK: Depth First Search
+    
+    func testDepthFirstSearch() {
         XCTAssert(binarySearchTree.depthFirstSearchForNode(13), "13 should be reachable via depth first search")
         self.generateBinarySearchTree()
         XCTAssert(binarySearchTree.depthFirstSearchForNode(1), "1 should be reachable via depth first search")
+        self.generateBinarySearchTree()
+        XCTAssert(binarySearchTree.depthFirstSearchForNode(5), "1 should be reachable via depth first search")
         self.generateBinarySearchTree()
         XCTAssertFalse(binarySearchTree.depthFirstSearchForNode(44), "44 should not be reachable via depth first search")
     }

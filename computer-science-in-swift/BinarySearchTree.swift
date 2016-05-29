@@ -29,10 +29,7 @@ class BinarySearchTreeNode {
 
 class BinarySearchTree {
     
-    init() { }
-    
     var root:BinarySearchTreeNode?
-    var nodeStack = [BinarySearchTreeNode]()
     
     func add(value:Int) {
         let node = BinarySearchTreeNode()
@@ -108,34 +105,6 @@ class BinarySearchTree {
         self.inOrderTraversal(self.root, fn: fn)
     }
     
-    func found(node:BinarySearchTreeNode?, valueToSearchFor:Int) -> Bool {
-        if let unwrappedNode = node {
-            if !unwrappedNode.visited {
-                unwrappedNode.visited = true
-                self.nodeStack.append(unwrappedNode)
-                return unwrappedNode.value == valueToSearchFor
-            }
-        }
-        return false
-    }
-    
-    func depthFirstSearchForNode(valueToSearchFor:Int) -> Bool {
-        self.nodeStack = [BinarySearchTreeNode]()
-        if self.found(self.root, valueToSearchFor:valueToSearchFor) {
-            return true;
-        }
-        while nodeStack.count != 0 {
-            let node = self.nodeStack.removeLast()
-            if self.found(node.left, valueToSearchFor:valueToSearchFor) {
-                return true
-            }
-            if self.found(node.right, valueToSearchFor:valueToSearchFor) {
-                return true
-            }
-        }
-        return false
-    }
-    
     func inOrderTraversal(node:BinarySearchTreeNode?, fn:(BinarySearchTreeNode) -> ()) {
         if let nonNilNode = node {
             if nonNilNode.left != nil {
@@ -146,5 +115,35 @@ class BinarySearchTree {
                 self.inOrderTraversal(nonNilNode.right, fn: fn)
             }
         }
+    }
+    
+    
+    
+    func depthFirstSearchForNode(valueToSearchFor:Int) -> Bool {
+        var nodeStack = [BinarySearchTreeNode]()
+        if self.findViaDepthFirstSearch(self.root, nodeStack:&nodeStack, valueToSearchFor:valueToSearchFor) {
+            return true
+        }
+        while nodeStack.count != 0 {
+            let node = nodeStack.removeFirst()
+            if self.findViaDepthFirstSearch(node.left, nodeStack:&nodeStack, valueToSearchFor:valueToSearchFor) {
+                return true
+            }
+            if self.findViaDepthFirstSearch(node.right, nodeStack:&nodeStack, valueToSearchFor:valueToSearchFor) {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func findViaDepthFirstSearch(node:BinarySearchTreeNode?, inout nodeStack:[BinarySearchTreeNode], valueToSearchFor:Int) -> Bool {
+        if let unwrappedNode = node {
+            if !unwrappedNode.visited {
+                unwrappedNode.visited = true
+                nodeStack.insert(unwrappedNode, atIndex:0)
+                return unwrappedNode.value == valueToSearchFor
+            }
+        }
+        return false
     }
 }
