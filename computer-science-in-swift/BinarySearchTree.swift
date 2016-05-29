@@ -24,11 +24,10 @@ class BinarySearchTreeNode {
     var value:Int = 0
     var left:BinarySearchTreeNode?
     var right:BinarySearchTreeNode?
+    var visited:Bool = false
 }
 
 class BinarySearchTree {
-    
-    init() { }
     
     var root:BinarySearchTreeNode?
     
@@ -116,5 +115,35 @@ class BinarySearchTree {
                 self.inOrderTraversal(nonNilNode.right, fn: fn)
             }
         }
+    }
+    
+    
+    
+    func depthFirstSearchForNode(valueToSearchFor:Int) -> Bool {
+        var nodeStack = [BinarySearchTreeNode]()
+        if self.findViaDepthFirstSearch(self.root, nodeStack:&nodeStack, valueToSearchFor:valueToSearchFor) {
+            return true
+        }
+        while nodeStack.count != 0 {
+            let node = nodeStack.removeFirst()
+            if self.findViaDepthFirstSearch(node.left, nodeStack:&nodeStack, valueToSearchFor:valueToSearchFor) {
+                return true
+            }
+            if self.findViaDepthFirstSearch(node.right, nodeStack:&nodeStack, valueToSearchFor:valueToSearchFor) {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func findViaDepthFirstSearch(node:BinarySearchTreeNode?, inout nodeStack:[BinarySearchTreeNode], valueToSearchFor:Int) -> Bool {
+        if let unwrappedNode = node {
+            if !unwrappedNode.visited {
+                unwrappedNode.visited = true
+                nodeStack.insert(unwrappedNode, atIndex:0)
+                return unwrappedNode.value == valueToSearchFor
+            }
+        }
+        return false
     }
 }
