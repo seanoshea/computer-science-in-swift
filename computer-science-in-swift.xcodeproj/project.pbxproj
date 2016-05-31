@@ -25,6 +25,20 @@
 		4122225F1CDFAD7C000E3A8D /* DoublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4122225E1CDFAD7C000E3A8D /* DoublyLinkedList.swift */; };
 		412222611CDFB0A7000E3A8D /* DoublyLinkedListTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412222601CDFB0A7000E3A8D /* DoublyLinkedListTest.swift */; };
 		412222621CDFB0FD000E3A8D /* DoublyLinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4122225E1CDFAD7C000E3A8D /* DoublyLinkedList.swift */; };
+		4131D2A31CFDD7640087D1BA /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A01CFDD7640087D1BA /* Graph.swift */; };
+		4131D2A41CFDD7640087D1BA /* WeightedEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A11CFDD7640087D1BA /* WeightedEdge.swift */; };
+		4131D2A51CFDD7640087D1BA /* WeightedGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A21CFDD7640087D1BA /* WeightedGraph.swift */; };
+		4131D2A71CFDD78F0087D1BA /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A61CFDD78F0087D1BA /* Edge.swift */; };
+		4131D2AA1CFDD7BA0087D1BA /* UnweightedEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A81CFDD7BA0087D1BA /* UnweightedEdge.swift */; };
+		4131D2AB1CFDD7BA0087D1BA /* UnweightedGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A91CFDD7BA0087D1BA /* UnweightedGraph.swift */; };
+		4131D2AE1CFDDBB50087D1BA /* WeightedGraphTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2AD1CFDDBB50087D1BA /* WeightedGraphTest.swift */; };
+		4131D2AF1CFDDBB90087D1BA /* Edge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A61CFDD78F0087D1BA /* Edge.swift */; };
+		4131D2B01CFDDBB90087D1BA /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A01CFDD7640087D1BA /* Graph.swift */; };
+		4131D2B11CFDDBB90087D1BA /* UnweightedEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A81CFDD7BA0087D1BA /* UnweightedEdge.swift */; };
+		4131D2B21CFDDBB90087D1BA /* UnweightedGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A91CFDD7BA0087D1BA /* UnweightedGraph.swift */; };
+		4131D2B31CFDDBB90087D1BA /* WeightedEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A11CFDD7640087D1BA /* WeightedEdge.swift */; };
+		4131D2B41CFDDBB90087D1BA /* WeightedGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A21CFDD7640087D1BA /* WeightedGraph.swift */; };
+		4131D2B61CFDDF260087D1BA /* weighted_graph_example.png in Resources */ = {isa = PBXBuildFile; fileRef = 4131D2B51CFDDF260087D1BA /* weighted_graph_example.png */; };
 		41D2AF921CEDCBBE00C29363 /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2AF911CEDCBBE00C29363 /* Multiplication.swift */; };
 		41D2AF941CEDCC3000C29363 /* MultiplicationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2AF931CEDCC3000C29363 /* MultiplicationTest.swift */; };
 		41D2AF951CEDCC7100C29363 /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2AF911CEDCBBE00C29363 /* Multiplication.swift */; };
@@ -67,6 +81,14 @@
 		14EAF1051AD9237F002C6872 /* BinarySearchTreeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearchTreeTest.swift; sourceTree = "<group>"; };
 		4122225E1CDFAD7C000E3A8D /* DoublyLinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoublyLinkedList.swift; sourceTree = "<group>"; };
 		412222601CDFB0A7000E3A8D /* DoublyLinkedListTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoublyLinkedListTest.swift; sourceTree = "<group>"; };
+		4131D2A01CFDD7640087D1BA /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		4131D2A11CFDD7640087D1BA /* WeightedEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedEdge.swift; sourceTree = "<group>"; };
+		4131D2A21CFDD7640087D1BA /* WeightedGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedGraph.swift; sourceTree = "<group>"; };
+		4131D2A61CFDD78F0087D1BA /* Edge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edge.swift; sourceTree = "<group>"; };
+		4131D2A81CFDD7BA0087D1BA /* UnweightedEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnweightedEdge.swift; sourceTree = "<group>"; };
+		4131D2A91CFDD7BA0087D1BA /* UnweightedGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnweightedGraph.swift; sourceTree = "<group>"; };
+		4131D2AD1CFDDBB50087D1BA /* WeightedGraphTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedGraphTest.swift; sourceTree = "<group>"; };
+		4131D2B51CFDDF260087D1BA /* weighted_graph_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weighted_graph_example.png; sourceTree = "<group>"; };
 		41D2AF911CEDCBBE00C29363 /* Multiplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
 		41D2AF931CEDCC3000C29363 /* MultiplicationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplicationTest.swift; sourceTree = "<group>"; };
 		712287DB1972CF60004ECA0E /* computer-science-in-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "computer-science-in-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +125,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4131D29F1CFDD7250087D1BA /* WeightedGraph */ = {
+			isa = PBXGroup;
+			children = (
+				4131D2A61CFDD78F0087D1BA /* Edge.swift */,
+				4131D2A01CFDD7640087D1BA /* Graph.swift */,
+				4131D2A81CFDD7BA0087D1BA /* UnweightedEdge.swift */,
+				4131D2A91CFDD7BA0087D1BA /* UnweightedGraph.swift */,
+				4131D2A11CFDD7640087D1BA /* WeightedEdge.swift */,
+				4131D2A21CFDD7640087D1BA /* WeightedGraph.swift */,
+			);
+			path = WeightedGraph;
+			sourceTree = "<group>";
+		};
+		4131D2AC1CFDDB8D0087D1BA /* WeightedGraph */ = {
+			isa = PBXGroup;
+			children = (
+				4131D2AD1CFDDBB50087D1BA /* WeightedGraphTest.swift */,
+			);
+			path = WeightedGraph;
+			sourceTree = "<group>";
+		};
 		712287D21972CF60004ECA0E = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +167,7 @@
 		712287DD1972CF60004ECA0E /* computer-science-in-swift */ = {
 			isa = PBXGroup;
 			children = (
+				4131D29F1CFDD7250087D1BA /* WeightedGraph */,
 				712287E01972CF60004ECA0E /* AppDelegate.swift */,
 				7165F12C1973049700DC38D9 /* BinarySearch.swift */,
 				14EAF1031AD9236A002C6872 /* BinarySearchTree.swift */,
@@ -153,6 +197,7 @@
 		712287F21972CF60004ECA0E /* computer-science-in-swiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				4131D2AC1CFDDB8D0087D1BA /* WeightedGraph */,
 				7165F12F197304EE00DC38D9 /* BinarySearchTest.swift */,
 				14EAF1051AD9237F002C6872 /* BinarySearchTreeTest.swift */,
 				7165F13419730A4800DC38D9 /* BubbleSortTest.swift */,
@@ -172,6 +217,7 @@
 		712287F31972CF60004ECA0E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4131D2B51CFDDF260087D1BA /* weighted_graph_example.png */,
 				712287F41972CF60004ECA0E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -267,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4131D2B61CFDDF260087D1BA /* weighted_graph_example.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,18 +324,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4131D2A51CFDD7640087D1BA /* WeightedGraph.swift in Sources */,
 				141D50DA1AC1465500DAAA4F /* InsertionSort.swift in Sources */,
+				4131D2A31CFDD7640087D1BA /* Graph.swift in Sources */,
 				71E0719A1972D0C700475940 /* NextPrimeFibonacci.swift in Sources */,
+				4131D2A41CFDD7640087D1BA /* WeightedEdge.swift in Sources */,
 				7165F13719732AAF00DC38D9 /* SelectionSort.swift in Sources */,
+				4131D2AB1CFDD7BA0087D1BA /* UnweightedGraph.swift in Sources */,
 				4122225F1CDFAD7C000E3A8D /* DoublyLinkedList.swift in Sources */,
 				141D50DF1AC14AA000DAAA4F /* MergeSort.swift in Sources */,
 				712287E11972CF60004ECA0E /* AppDelegate.swift in Sources */,
 				7165F12D1973049700DC38D9 /* BinarySearch.swift in Sources */,
+				4131D2A71CFDD78F0087D1BA /* Edge.swift in Sources */,
 				14EAF1041AD9236A002C6872 /* BinarySearchTree.swift in Sources */,
 				7165F132197309D400DC38D9 /* BubbleSort.swift in Sources */,
 				41D2AF921CEDCBBE00C29363 /* Multiplication.swift in Sources */,
 				1491747C1AD45A5900CBE57A /* LinkedList.swift in Sources */,
 				14E15FF71ABFFB2100F0A7E5 /* QuickSort.swift in Sources */,
+				4131D2AA1CFDD7BA0087D1BA /* UnweightedEdge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,15 +351,21 @@
 			files = (
 				14EAF1061AD9237F002C6872 /* BinarySearchTreeTest.swift in Sources */,
 				7165F13A19732B3600DC38D9 /* SelectionSortTest.swift in Sources */,
+				4131D2AF1CFDDBB90087D1BA /* Edge.swift in Sources */,
+				4131D2B31CFDDBB90087D1BA /* WeightedEdge.swift in Sources */,
 				14E15FFA1ABFFCDC00F0A7E5 /* QuickSort.swift in Sources */,
 				141D50E11AC14AE700DAAA4F /* MergeSortTest.swift in Sources */,
 				141D50DC1AC146EC00DAAA4F /* InsertionSortTest.swift in Sources */,
+				4131D2B21CFDDBB90087D1BA /* UnweightedGraph.swift in Sources */,
 				141D50E21AC14AFA00DAAA4F /* MergeSort.swift in Sources */,
 				14E15FF91ABFFB4D00F0A7E5 /* QuickSortTest.swift in Sources */,
 				7165F130197304EE00DC38D9 /* BinarySearchTest.swift in Sources */,
+				4131D2B01CFDDBB90087D1BA /* Graph.swift in Sources */,
 				71E0719D1972D0FA00475940 /* NextPrimeFibonacciTest.swift in Sources */,
+				4131D2AE1CFDDBB50087D1BA /* WeightedGraphTest.swift in Sources */,
 				41D2AF951CEDCC7100C29363 /* Multiplication.swift in Sources */,
 				7165F13819732AAF00DC38D9 /* SelectionSort.swift in Sources */,
+				4131D2B11CFDDBB90087D1BA /* UnweightedEdge.swift in Sources */,
 				41D2AF941CEDCC3000C29363 /* MultiplicationTest.swift in Sources */,
 				7165F133197309D400DC38D9 /* BubbleSort.swift in Sources */,
 				71E0719B1972D0C700475940 /* NextPrimeFibonacci.swift in Sources */,
@@ -316,6 +375,7 @@
 				412222621CDFB0FD000E3A8D /* DoublyLinkedList.swift in Sources */,
 				14EAF1071AD92387002C6872 /* BinarySearchTree.swift in Sources */,
 				7165F13519730A4800DC38D9 /* BubbleSortTest.swift in Sources */,
+				4131D2B41CFDDBB90087D1BA /* WeightedGraph.swift in Sources */,
 				1491747D1AD45A5900CBE57A /* LinkedList.swift in Sources */,
 				1491747A1AD45A4400CBE57A /* LinkedListTest.swift in Sources */,
 			);

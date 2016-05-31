@@ -8,6 +8,8 @@ The overwhelming majority of the actual code and logic for this repo is taken di
 ### Wikipedia Links
 *  [Binary Search](http://en.wikipedia.org/wiki/Binary_search_algorithm)
 *  [Binary Search Tree](http://en.wikipedia.org/wiki/Binary_search_tree)
+*  [Depth First Search](https://en.wikipedia.org/wiki/Depth-first_search)
+*  [Breadth First Search](https://en.wikipedia.org/wiki/Breadth-first_search)
 *  [Bubble Sort](http://en.wikipedia.org/wiki/Bubble_sort)
 *  [Insertion Sort](http://en.wikipedia.org/wiki/Insertion_sort)
 *  [Linked List](http://en.wikipedia.org/wiki/Linked_list)
@@ -18,3 +20,4 @@ The overwhelming majority of the actual code and logic for this repo is taken di
 
 ### Other Repos
 Fiddling around with sorting and data structures in Swift isn't exactly a new idea. Check out https://github.com/jessesquires/swift-sorts for some other Swift-based sorting algorithms.
+The weighted graph implementation used in the shortest path example were copied directly from https://github.com/michaelgwelch/pandemic
