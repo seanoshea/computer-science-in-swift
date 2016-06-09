@@ -39,6 +39,8 @@
 		4131D2B31CFDDBB90087D1BA /* WeightedEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A11CFDD7640087D1BA /* WeightedEdge.swift */; };
 		4131D2B41CFDDBB90087D1BA /* WeightedGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2A21CFDD7640087D1BA /* WeightedGraph.swift */; };
 		4131D2B61CFDDF260087D1BA /* weighted_graph_example.png in Resources */ = {isa = PBXBuildFile; fileRef = 4131D2B51CFDDF260087D1BA /* weighted_graph_example.png */; };
+		4131D2B81CFDFCF90087D1BA /* ShortestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D2B71CFDFCF90087D1BA /* ShortestPath.swift */; };
+		416C8C841D09864900840D56 /* ShortestPathTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 416C8C831D09864900840D56 /* ShortestPathTest.swift */; };
 		41D2AF921CEDCBBE00C29363 /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2AF911CEDCBBE00C29363 /* Multiplication.swift */; };
 		41D2AF941CEDCC3000C29363 /* MultiplicationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2AF931CEDCC3000C29363 /* MultiplicationTest.swift */; };
 		41D2AF951CEDCC7100C29363 /* Multiplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D2AF911CEDCBBE00C29363 /* Multiplication.swift */; };
@@ -89,6 +91,8 @@
 		4131D2A91CFDD7BA0087D1BA /* UnweightedGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnweightedGraph.swift; sourceTree = "<group>"; };
 		4131D2AD1CFDDBB50087D1BA /* WeightedGraphTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedGraphTest.swift; sourceTree = "<group>"; };
 		4131D2B51CFDDF260087D1BA /* weighted_graph_example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weighted_graph_example.png; sourceTree = "<group>"; };
+		4131D2B71CFDFCF90087D1BA /* ShortestPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortestPath.swift; sourceTree = "<group>"; };
+		416C8C831D09864900840D56 /* ShortestPathTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortestPathTest.swift; sourceTree = "<group>"; };
 		41D2AF911CEDCBBE00C29363 /* Multiplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Multiplication.swift; sourceTree = "<group>"; };
 		41D2AF931CEDCC3000C29363 /* MultiplicationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplicationTest.swift; sourceTree = "<group>"; };
 		712287DB1972CF60004ECA0E /* computer-science-in-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "computer-science-in-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,7 +171,6 @@
 		712287DD1972CF60004ECA0E /* computer-science-in-swift */ = {
 			isa = PBXGroup;
 			children = (
-				4131D29F1CFDD7250087D1BA /* WeightedGraph */,
 				712287E01972CF60004ECA0E /* AppDelegate.swift */,
 				7165F12C1973049700DC38D9 /* BinarySearch.swift */,
 				14EAF1031AD9236A002C6872 /* BinarySearchTree.swift */,
@@ -181,7 +184,9 @@
 				71E071991972D0C700475940 /* NextPrimeFibonacci.swift */,
 				14E15FF61ABFFB2100F0A7E5 /* QuickSort.swift */,
 				7165F13619732AAF00DC38D9 /* SelectionSort.swift */,
+				4131D2B71CFDFCF90087D1BA /* ShortestPath.swift */,
 				712287DE1972CF60004ECA0E /* Supporting Files */,
+				4131D29F1CFDD7250087D1BA /* WeightedGraph */,
 			);
 			path = "computer-science-in-swift";
 			sourceTree = "<group>";
@@ -197,7 +202,6 @@
 		712287F21972CF60004ECA0E /* computer-science-in-swiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				4131D2AC1CFDDB8D0087D1BA /* WeightedGraph */,
 				7165F12F197304EE00DC38D9 /* BinarySearchTest.swift */,
 				14EAF1051AD9237F002C6872 /* BinarySearchTreeTest.swift */,
 				7165F13419730A4800DC38D9 /* BubbleSortTest.swift */,
@@ -209,7 +213,9 @@
 				71E0719C1972D0FA00475940 /* NextPrimeFibonacciTest.swift */,
 				14E15FF81ABFFB4D00F0A7E5 /* QuickSortTest.swift */,
 				7165F13919732B3600DC38D9 /* SelectionSortTest.swift */,
+				416C8C831D09864900840D56 /* ShortestPathTest.swift */,
 				712287F31972CF60004ECA0E /* Supporting Files */,
+				4131D2AC1CFDDB8D0087D1BA /* WeightedGraph */,
 			);
 			path = "computer-science-in-swiftTests";
 			sourceTree = "<group>";
@@ -336,6 +342,7 @@
 				712287E11972CF60004ECA0E /* AppDelegate.swift in Sources */,
 				7165F12D1973049700DC38D9 /* BinarySearch.swift in Sources */,
 				4131D2A71CFDD78F0087D1BA /* Edge.swift in Sources */,
+				4131D2B81CFDFCF90087D1BA /* ShortestPath.swift in Sources */,
 				14EAF1041AD9236A002C6872 /* BinarySearchTree.swift in Sources */,
 				7165F132197309D400DC38D9 /* BubbleSort.swift in Sources */,
 				41D2AF921CEDCBBE00C29363 /* Multiplication.swift in Sources */,
@@ -355,6 +362,7 @@
 				4131D2B31CFDDBB90087D1BA /* WeightedEdge.swift in Sources */,
 				14E15FFA1ABFFCDC00F0A7E5 /* QuickSort.swift in Sources */,
 				141D50E11AC14AE700DAAA4F /* MergeSortTest.swift in Sources */,
+				416C8C841D09864900840D56 /* ShortestPathTest.swift in Sources */,
 				141D50DC1AC146EC00DAAA4F /* InsertionSortTest.swift in Sources */,
 				4131D2B21CFDDBB90087D1BA /* UnweightedGraph.swift in Sources */,
 				141D50E21AC14AFA00DAAA4F /* MergeSort.swift in Sources */,
