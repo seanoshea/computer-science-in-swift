@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'slather'
-gem 'fastlane'
+gem 'fastlane', '1.94.0'
+gem 'cocoapods', '1.0.0'

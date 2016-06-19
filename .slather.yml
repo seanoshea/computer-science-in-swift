@@ -1,5 +1,0 @@
-coverage_service: coveralls
-xcodeproj: computer-science-in-swift.xcodeproj
-source_directory: computer-science-in-swift
-ignore:
-  - computer-science-in-swiftTests/*
