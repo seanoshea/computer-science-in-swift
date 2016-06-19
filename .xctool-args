@@ -1,7 +1,0 @@
-[
-  "-project", "computer-science-in-swift.xcodeproj",
-  "-scheme", "computer-science-in-swift",
-  "-configuration", "Debug",
-  "-sdk", "iphonesimulator",
-  "-arch", "i386"
-]
