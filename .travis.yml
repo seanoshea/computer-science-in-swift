@@ -4,5 +4,4 @@ before_install:
 - brew update
 - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
 install: bundle install --without=documentation --path ../travis_bundle_dir
-script: bundle exec fastlane test
-after_success: bundle exec slather
+script: FASTLANE_XCODE_LIST_TIMEOUT=60 bundle exec fastlane test
