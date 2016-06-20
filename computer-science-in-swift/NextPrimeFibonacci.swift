@@ -58,7 +58,11 @@ class NextPrimeFibonacci {
             if memoized != nil {
                 return memoized!
             } else {
-                map[input] = fibonacci(input - 1) + fibonacci(input - 2)
+                let left = fibonacci(input - 1)
+                let right = fibonacci(input - 2)
+                map[input - 1] = left
+                map[input - 2] = right
+                map[input] = left + right
                 return map[input]!
             }
         }
