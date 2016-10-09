@@ -22,8 +22,8 @@ import Foundation
 
 class BubbleSort {
     
-    func bubbleSort(inout items:[Int]) -> [Int] {
-        for (i, _) in items.enumerate() {
+    func bubbleSort(_ items:inout [Int]) -> [Int] {
+        for (i, _) in items.enumerated() {
             let stop = (items.count - 1) - i
             for j in 0..<stop {
                 if items[j] > items[j + 1] {

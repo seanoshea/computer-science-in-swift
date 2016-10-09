@@ -97,7 +97,7 @@ class MultiplicationTest : XCTestCase {
     
     func testInvalidInput() {
         do {
-            try Multiplication.regularMultiplication([10, 0], bottom: [1, 0])
+            try _ = Multiplication.regularMultiplication([10, 0], bottom: [1, 0])
             XCTAssertTrue(1 == 0)
         } catch let error {
             XCTAssertTrue((error as? MultiplicationError) != nil)

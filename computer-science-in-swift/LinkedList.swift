@@ -30,7 +30,7 @@ class LinkedList: NSObject {
     var head:LinkedListNode?
     var length:Int = 0
     
-    func add(data:Int) {
+    func add(_ data:Int) {
         let node = LinkedListNode()
         node.data = data
         var current:LinkedListNode
@@ -47,7 +47,7 @@ class LinkedList: NSObject {
         self.length = self.length + 1
     }
     
-    func item(index:Int) -> Int? {
+    func item(_ index:Int) -> Int? {
         if index > -1 && index < self.length {
             var current:LinkedListNode = self.head!
             var i = 0
@@ -60,7 +60,7 @@ class LinkedList: NSObject {
         return nil
     }
     
-    func remove(index:Int) -> Int? {
+    func remove(_ index:Int) -> Int? {
         if index > -1 && index < self.length {
             var current:LinkedListNode = self.head!
             var previous:LinkedListNode = LinkedListNode()
@@ -96,7 +96,7 @@ class LinkedList: NSObject {
     
     func clear() {
         for i in 0..<self.length {
-            self.remove(i)
+            _ = self.remove(i)
         }
         self.head = nil
         self.length = 0

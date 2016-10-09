@@ -22,11 +22,11 @@ import Foundation
 
 class InsertionSort {
     
-    func insertionSort(inout items:[Int]) -> [Int] {
-        for (i, _) in items.enumerate() {
+    func insertionSort(_ items:inout [Int]) -> [Int] {
+        for (i, _) in items.enumerated() {
             var j:Int = i - 1
             let value = items[i]
-            for _ in j.stride(to: -1, by: -1) {
+            for _ in stride(from: j, to: -1, by: -1) {
                 guard j > -1 && items[j] > value else { break }
                 items[j + 1] = items[j]
                 j = j - 1

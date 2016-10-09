@@ -32,7 +32,7 @@ class DoublyLinkedList {
     var tail:DoublyLinkedListNode?
     var length:Int = 0
     
-    func add(data:Int) {
+    func add(_ data:Int) {
         let node = DoublyLinkedListNode()
         node.data = data
         if self.length == 0 {
@@ -46,7 +46,7 @@ class DoublyLinkedList {
         self.length = self.length + 1
     }
     
-    func item(index:Int) -> Int? {
+    func item(_ index:Int) -> Int? {
         if index > -1 && index < self.length {
             var current = self.head
             var i = 0
@@ -60,7 +60,7 @@ class DoublyLinkedList {
         }
     }
     
-    func remove(index:Int) -> Int? {
+    func remove(_ index:Int) -> Int? {
         if index > -1 && index < self.length {
             var current = self.head
             var i = 0

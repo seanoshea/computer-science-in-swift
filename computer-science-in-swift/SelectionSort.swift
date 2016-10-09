@@ -22,8 +22,8 @@ import Foundation
 
 class SelectionSort {
     
-    func selectionSort(inout items:[Int]) -> [Int] {
-        for (i, _) in items.enumerate() {
+    func selectionSort(_ items:inout [Int]) -> [Int] {
+        for (i, _) in items.enumerated() {
             var min = i
             for j in (i + 1)..<items.count {
                 if items[j] < items[min] {

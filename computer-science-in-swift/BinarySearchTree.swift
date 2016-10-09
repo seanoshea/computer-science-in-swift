@@ -31,7 +31,7 @@ class BinarySearchTree {
     
     var root:BinarySearchTreeNode?
     
-    func add(value:Int) {
+    func add(_ value:Int) {
         let node = BinarySearchTreeNode()
         node.value = value
         if self.root == nil {
@@ -60,7 +60,7 @@ class BinarySearchTree {
         }
     }
     
-    func contains(value:Int) -> Bool {
+    func contains(_ value:Int) -> Bool {
         var found = false
         var current = self.root
         while !found && current != nil {
@@ -97,15 +97,15 @@ class BinarySearchTree {
         self.traverse { (node:BinarySearchTreeNode) -> () in
             result += "\(node.value) "
         }
-        result = result.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        result = result.trimmingCharacters(in: CharacterSet.whitespaces)
         return result
     }
     
-    func traverse(fn:(BinarySearchTreeNode) -> ()) {
+    func traverse(_ fn:(BinarySearchTreeNode) -> ()) {
         self.inOrderTraversal(self.root, fn: fn)
     }
     
-    func inOrderTraversal(node:BinarySearchTreeNode?, fn:(BinarySearchTreeNode) -> ()) {
+    func inOrderTraversal(_ node:BinarySearchTreeNode?, fn:(BinarySearchTreeNode) -> ()) {
         if let nonNilNode = node {
             if nonNilNode.left != nil {
                 self.inOrderTraversal(nonNilNode.left, fn: fn)
@@ -119,7 +119,7 @@ class BinarySearchTree {
     
     
     
-    func depthFirstSearchForNode(valueToSearchFor:Int) -> Bool {
+    func depthFirstSearchForNode(_ valueToSearchFor:Int) -> Bool {
         var nodeStack = [BinarySearchTreeNode]()
         if self.findViaDepthFirstSearch(self.root, nodeStack:&nodeStack, valueToSearchFor:valueToSearchFor) {
             return true
@@ -136,11 +136,11 @@ class BinarySearchTree {
         return false
     }
     
-    func findViaDepthFirstSearch(node:BinarySearchTreeNode?, inout nodeStack:[BinarySearchTreeNode], valueToSearchFor:Int) -> Bool {
+    func findViaDepthFirstSearch(_ node:BinarySearchTreeNode?, nodeStack:inout [BinarySearchTreeNode], valueToSearchFor:Int) -> Bool {
         if let unwrappedNode = node {
             if !unwrappedNode.visited {
                 unwrappedNode.visited = true
-                nodeStack.insert(unwrappedNode, atIndex:0)
+                nodeStack.insert(unwrappedNode, at:0)
                 return unwrappedNode.value == valueToSearchFor
             }
         }

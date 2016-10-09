@@ -56,11 +56,11 @@ class SelectionSortTest: XCTestCase {
     
     func testRandomArray() {
         var original = [Int]()
-        for _ in 1.stride(to: 100, by: 1) {
-            original.append(Int(rand() % 100 + 1))
+        for _ in stride(from: 1, to: 100, by: 1) {
+            original.append(Int(arc4random() % 100 + 1))
         }
         var copied = original
-        original.sortInPlace({ $1 > $0 })
+        original.sort(by: { $1 > $0 })
         let sorted = selectionSort.selectionSort(&copied)
         XCTAssert(sorted == original)
     }

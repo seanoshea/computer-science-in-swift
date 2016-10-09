@@ -24,7 +24,7 @@ class NextPrimeFibonacci {
     
     var map = Dictionary<Int, Int>()
     
-    func nextPrimeFibonacci(input: Int) -> Int {
+    func nextPrimeFibonacci(_ input: Int) -> Int {
         var nextPrimeFibonacci = 0
         while true {
             let num = fibonacci(nextPrimeFibonacci)
@@ -37,10 +37,10 @@ class NextPrimeFibonacci {
         return nextPrimeFibonacci
     }
     
-    func isPrime(input: Int) -> Bool {
+    func isPrime(_ input: Int) -> Bool {
         var isPrime = input >= 2
         if isPrime {
-            for index in 2.stride(to: input - 1, by: 1) {
+            for index in stride(from: 2, to: input - 1, by: 1) {
                 if input % index == 0 {
                     isPrime = false
                     break
@@ -50,7 +50,7 @@ class NextPrimeFibonacci {
         return isPrime
     }
     
-    func fibonacci(input: Int) -> Int {
+    func fibonacci(_ input: Int) -> Int {
         if input <= 1 {
             return 1
         } else {

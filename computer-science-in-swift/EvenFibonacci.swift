@@ -42,7 +42,7 @@ class EvenFibonacci {
 
 typealias FibonacciTuple = (Int64, Int64)
 
-class FibonacciGenerator : GeneratorType {
+class FibonacciGenerator : IteratorProtocol {
     
     var last:FibonacciTuple = (0, 1)
     var endAt:Int64

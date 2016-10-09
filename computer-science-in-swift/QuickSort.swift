@@ -22,27 +22,27 @@ import Foundation
 
 class QuickSort {
     
-    func quickSort(inout items:[Int]) -> [Int] {
+    func quickSort(_ items:inout [Int]) -> [Int] {
         let left:Int = 0
         let right:Int = items.count - 1
         return qs(&items, left:left, right:right)
     }
     
-    func qs(inout items:[Int], left:Int = 0, right:Int) -> [Int] {
+    func qs(_ items:inout [Int], left:Int = 0, right:Int) -> [Int] {
         var index:Int
         if items.count > 1 {
             index = partition(&items, left:left, right:right)
             if left < index - 1 {
-                qs(&items, left:left, right:index - 1)
+                _ = qs(&items, left:left, right:index - 1)
             }
             if index < right {
-                qs(&items, left:index, right:right)
+                _ = qs(&items, left:index, right:right)
             }
         }
         return items
     }
     
-    func partition(inout items:[Int], left:Int = 0, right:Int) -> Int {
+    func partition(_ items:inout [Int], left:Int = 0, right:Int) -> Int {
         let index:Int = Int(Double((right + left) / 2))
         let pivot = items[index]
         var i = left
@@ -63,7 +63,7 @@ class QuickSort {
         return i
     }
     
-    func exchange<T>(inout items:[T], i:Int, j:Int) {
+    func exchange<T>(_ items:inout [T], i:Int, j:Int) {
         let temp = items[i]
         items[i] = items[j]
         items[j] = temp

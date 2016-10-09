@@ -22,7 +22,7 @@ import Foundation
 
 class MultiplesOfThreeOrFive {
     
-    func sumOfMultiplesOfThreeOrFive(max:Int) -> Int {
+    func sumOfMultiplesOfThreeOrFive(_ max:Int) -> Int {
         var result = 0
         var i = 0
         while (i < max) {

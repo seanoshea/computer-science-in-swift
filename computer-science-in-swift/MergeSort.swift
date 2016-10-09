@@ -22,7 +22,7 @@ import Foundation
 
 class MergeSort {
     
-    func mergeSort(items:[Int]) -> [Int] {
+    func mergeSort(_ items:[Int]) -> [Int] {
         if items.count < 2 {
             return items
         }
@@ -35,7 +35,7 @@ class MergeSort {
         return merge(mergedLeft, right:mergedRight)
     }
     
-    func merge(left:[Int], right:[Int]) -> [Int] {
+    func merge(_ left:[Int], right:[Int]) -> [Int] {
         var result:[Int] = [Int]()
         var il = 0
         var ir = 0
